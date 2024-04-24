@@ -151,6 +151,14 @@ module.exports = {
                 error,
             });
         }
-    }
+    },
+    getOneById : async(req, res)=>{
+        try {
+            const Compte = await db.Utilisateur.findByPk(req.params.id)
+            res.json(Compte)
+        } catch (error) {
+            console.log(error)
+        }
+    },
     
 }

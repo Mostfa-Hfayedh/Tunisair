@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react'
 import SideNav from "../Side-NavBar/SideNav"
 import "./gestion.css"
 import axios from 'axios'
-import { useLocation } from 'react-router-dom'
+import { Outlet, useLocation } from 'react-router-dom'
 
 const GestionnaireDash = () => {
   const [user,setUser] = useState({})
@@ -37,6 +37,9 @@ const GestionnaireDash = () => {
   return (
     <div className='dash'>  
         <SideNav account={account}/>
+        <div className='content'>
+            <Outlet />
+        </div>
     </div>
   )
 }

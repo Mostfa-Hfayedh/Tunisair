@@ -5,6 +5,13 @@
     padding: 20px;
     width: 35%;
   }
+.form  {
+    background-color: white;
+    border-radius: 20px;
+    box-sizing: border-box;
+    padding: 20px;
+    width: 100%;
+  }
 
   .noAccount{
     display: flex;

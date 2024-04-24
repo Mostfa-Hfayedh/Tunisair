@@ -19,13 +19,14 @@ const OneCompte = ({account}) => {
           },
         }
       );
+      console.log(res.data);
       setUtilisateur(res.data);
     } catch (error) {
       console.log(error);
     }
   };
   const navigation = () => {
-    return account.role === "Gestionnaire" ? "gestionnaireDash" : account.role === "Actionnaire" ? "" : account.role === "Décideur" ? "" : account.role === "Administrateur" ? "" : account.role === "Sécrétaire" ? "" : ""
+    return account.role === "Gestionnaire" ? "gestionnaireDash/profile" : account.role === "Actionnaire" ? "" : account.role === "Décideur" ? "" : account.role === "Administrateur" ? "" : account.role === "Sécrétaire" ? "" : ""
   }
 
   useEffect(()=>{
@@ -33,15 +34,15 @@ const OneCompte = ({account}) => {
   },[])
 
   return (  
-    <div class="card">
-      <div class="image">
+    <div className="card">
+      <div className="image">
         <img src={utilisateur.photo} alt=""/>
       </div>
-      <div class="card-info">
+      <div className="card-info">
         <span>{utilisateur.name}</span>
         <p>{account.role}</p>
       </div>
-      <a href="" class="button" onClick={()=>{
+      <a href="" className="button" onClick={()=>{
         navigate("/"+navigation() , {state :{ account : account}})
       }}>
         Login 

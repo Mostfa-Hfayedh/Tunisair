@@ -2,9 +2,8 @@ const db = require('../database')
 module.exports = {
     getAll:async(req, res)=>{
         try {
-            const AllFiliales = db.Filiale.findAll({})
-            res.json(AllFiliales)
-            
+            const filiales = await db.Filiale.findAll({})
+            res.json(filiales)
             
         } catch (error) {
             console.log(error)

@@ -25,22 +25,46 @@ const SideNav = ({ account }) => {
         <p>Tunisair</p>
       </div>
       <div className="sidenav-options">
-        <div className="sidenav-option">
+        <div
+          className="sidenav-option"
+          onClick={(e) => {
+            e.preventDefault();
+            navigate("profile", { state: { account: account } });
+          }}
+        >
           <FontAwesomeIcon className="icons" icon={faCircleUser} />
           <p>Profile</p>
         </div>
         {account.role === "Gestionnaire" ? (
           <>
             {" "}
-            <div className="sidenav-option">
+            <div
+              className="sidenav-option"
+              onClick={(e) => {
+                e.preventDefault();
+                navigate("utilisateurs", { state: { account: account } });
+              }}
+            >
               <FontAwesomeIcon className="icons" icon={faUsers} />
               <p>Utilisateurs</p>
             </div>
-            <div className="sidenav-option">
+            <div
+              className="sidenav-option"
+              onClick={(e) => {
+                e.preventDefault();
+                navigate("filiales", { state: { account: account } });
+              }}
+            >
               <FontAwesomeIcon className="icons" icon={faBuilding} />
               <p>Filiales</p>
             </div>
-            <div className="sidenav-option">
+            <div
+              className="sidenav-option"
+              onClick={(e) => {
+                e.preventDefault();
+                navigate("comptes", { state: { account: account } });
+              }}
+            >
               <FontAwesomeIcon className="icons" icon={faAddressBook} />
               <p>Comptes</p>
             </div>{" "}

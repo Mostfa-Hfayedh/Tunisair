@@ -26,8 +26,8 @@ const Login = () => {
   return (
     <div className="login">
       <div className="form2">
-        <div className="title">Welcome</div>
-        <div className="subtitle">Let's create your account!</div>
+        <div className="title">Connexion</div>
+        <div className="subtitle">Bienvenue à Tunisair</div>
 
         <div className="input-container ic1">
           <input

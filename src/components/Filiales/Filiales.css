@@ -1,277 +1,270 @@
-.container{
-    width: 100%;
-    height: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-    gap:1rem;
+.filiales{
+  background-color: white;
+  width: 90%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem;
+  gap: 1rem;
 }
-.form-container{
-    background-color: rgba(209, 209, 209, 0.8);
-    width: 65%;
-    height: 80%;
-    display: flex;
-    justify-content: center;
-    align-items: flex-start;
-    flex-direction: column;
-    gap:1.5rem;
-    padding:1rem;
-    border-radius: 10px ;
+.filiales-titre{
+  font-size: 36px;
+  font-weight: 500;
+  color: #D40000;
 }
-.title{
-    font-size: 36px;
-    color: red;
-    font-weight: 500;
+.filiales-container{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  padding: 1rem;
 }
-.long-input{
-    width: 100%;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    
+.filiales-header{
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+  align-items: center;
 }
-.long-input input{
-    width: 80%;
-    height:1.5rem;
-    background-color: transparent;
+.one-filiale{
+  width: 100%;
+  background-color: #e0e0e0;
+  height: 2.5rem;
+  border-radius: 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.5rem;
 }
-.long-input p {
-    font-size: 16px;
-    font-weight: 400;
-    color: rgb(59, 59, 158) ; 
+.filiales-container{
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
 }
-.top-section{
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    width: 100%;
-    
-    
+.one-filiale-buttons{
+  width: 8%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
-.top-section-right{
-    display: flex;
-    align-items: center;
-    justify-content: flex-start;
-    gap: 1.5rem;
+.one-filiale-icons{
+  width: 1.5rem;
+  height: 1.5rem;
+  color: #D40000;
+  cursor: pointer;
 }
-.top-section-right input{
-	height: 1.5rem;
-}
-.top-section p{
-    font-size: 16px;
-    font-weight: 400;
-    color: rgb(59, 59, 158) ;
-}
-.middle-section {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    width:100%;
+.addButton{
+  width: 8rem !important;
+  height: 3rem !important;
+  background-color: #D40000 !important;
+  color: white !important;
+  border-radius: 8px !important;
+  font-size: 15px !important;
+  font-weight: 600 !important;
 }
 
-.small-inputs{
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: flex-start;
-    width: 50%;
-    gap:1rem;
+
+.radio-button-container {
+  display: flex;
+  align-items: center;
+  gap: 24px;
 }
-.middle-section-right{
-    display: flex;
-    justify-content: flex-start;
-    align-items: center;
-    width:45%;
+
+.radio-button {
+  display: inline-block;
+  position: relative;
+  cursor: pointer;
 }
-.middle-input{
-    width: 100%;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    
+
+.radio-button__input {
+  position: absolute;
+  opacity: 0;
+  width: 0;
+  height: 0;
 }
-.middle-input p {
-    font-size: 16px;
-    font-weight: 400;
-    color: rgb(59, 59, 158) ;
+
+.radio-button__label {
+  display: inline-block;
+  padding-left: 30px;
+  margin-bottom: 10px;
+  position: relative;
+  font-size: 15px;
+  color: black;
+  font-weight: 600;
+  cursor: pointer;
+  text-transform: uppercase;
+  transition: all 0.3s ease;
 }
-.middle-input input{
-    width: 60%;
-    height:1.5rem;
+
+.radio-button__custom {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  border: 2px solid #555;
+  transition: all 0.3s ease;
 }
-.big-input{
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    width: 100%;
-    height:15%;
+
+.radio-button__input:checked + .radio-button__label .radio-button__custom {
+  background-color: #D40000;
+  border-color: transparent;
+  transform: scale(0.8);
+  box-shadow: 0 0 20px #4c8bf580;
 }
-.big-input input{
-    width: 80%;
-    height:100%;
+
+.radio-button__input:checked + .radio-button__label {
+  color: #D40000;
 }
-.big-input p {
-    font-size: 16px;
-    font-weight: 400;
-    color: rgb(59, 59, 158) ;
-}
-.select-section{
-    display: flex;
-    justify-content: space-between;
-    align-items:center;
-    width: 50%;
-    color: rgb(59, 59, 158) ;
-}
-.select-section p {
-    font-size: 16px;
-    font-weight: 400;
-}
-.select-section .input{
-    width: 60%;
-    height:1.5rem;
-}
-.submit{
-    width: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-.submit button{
-    background-color: red;
-    outline: none ;
-    border : none ;
-    width: 10%;
-    height: 2rem;
-    border-radius: 5px;
-    color: black ;
-}
-.submit button:hover{
-    scale: 1.1;
-    transition: 0.5s;
+
+.radio-button__label:hover .radio-button__custom {
+  transform: scale(1.2);
+  border-color: #D40000;
+  box-shadow: 0 0 20px #D40000;
 }
 
 
 
+.filiale-form{
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+.longInput{
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
 
-.card {
-    width: 300px;
-    height: 220px;
-    background-color: rgb(255, 255, 255);
-    border-radius: 8px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    padding: 20px 30px;
-    gap: 13px;
-    position: relative;
-    overflow: hidden;
-    box-shadow: 2px 2px 20px rgba(0, 0, 0, 0.062);
-  }
-  
-  #cookieSvg {
-    width: 50px;
-  }
-  
-  #cookieSvg g path {
-    fill: rgb(97, 81, 81);
-  }
-  
-  .cookieHeading {
-    font-size: 1.2em;
-    font-weight: 800;
-    color: rgb(26, 26, 26);
-  }
-  
-  .cookieDescription {
-    text-align: center;
-    font-size: 0.7em;
-    font-weight: 600;
-    color: rgb(99, 99, 99);
-  }
-  
-  .cookieDescription a {
-    --tw-text-opacity: 1;
-    color: rgb(59 130 246);
-  }
-  
-  .cookieDescription a:hover {
-    -webkit-text-decoration-line: underline;
-    text-decoration-line: underline;
-  }
-  
-  .buttonContainer {
-    display: flex;
-    gap: 20px;
-    flex-direction: row;
-  }
-  
-  .acceptButton {
-    width: 80px;
-    height: 30px;
-    background-color: #7b57ff;
-    transition-duration: .2s;
-    border: none;
-    color: rgb(241, 241, 241);
-    cursor: pointer;
-    font-weight: 600;
-    border-radius: 20px;
-    box-shadow: 0 4px 6px -1px #977ef3, 0 2px 4px -1px #977ef3;
-    transition: all .6s ease;
-  }
-  
-  .declineButton {
-    width: 80px;
-    height: 30px;
-    background-color: #dadada;
-    transition-duration: .2s;
-    color: rgb(46, 46, 46);
-    border: none;
-    cursor: not-allowed;
-    font-weight: 600;
-    border-radius: 20px;
-    box-shadow: 0 4px 6px -1px #bebdbd, 0 2px 4px -1px #bebdbd;
-    transition: all .6s ease;
-  }
-  
-  .declineButton:hover {
-    background-color: #ebebeb;
-    box-shadow: 0 10px 15px -3px #bebdbd, 0 4px 6px -2px #bebdbd;
-    transition-duration: .2s;
-  }
-  
-  .acceptButton:hover {
-    background-color: #9173ff;
-    box-shadow: 0 10px 15px -3px #977ef3, 0 4px 6px -2px #977ef3;
-    transition-duration: .2s;
-  }
-  #Edit-modal{
-    position: fixed;
-    top:0;
-    bottom: 0;
-    right: 0;
-    left: 0;
-    background-color: rgba(0, 0, 0, 0.6);
-    z-index: 100;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
-  .modal{
-   background: #e6ecf0;
-   padding: 10px 0px 20px 0;
-   border-radius: 10px;
-   width: 60%;
-   height: 100%;
-   text-align: center;
-  }
+.longInput input {
+  outline: none;
+  background-color: transparent;
+  width: 80%;
+  height: 2rem;
+  border: 1px solid gray;
+  border-radius: 5px;
+  padding: 0.2rem;
+  font-size: 16px;
+}
 
-  .top-form{
-    display: flex;
-    justify-content: flex-end;
-  }
-  .top-form .close-modal{
-    cursor: pointer;
-    padding: 0 20px;
-  }
+.longInput p {
+  font-size: 18px;
+  font-weight: 500;
+  color: #D40000;
+}
+
+.type-abrev{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.abreviation{
+  width: 35%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.abreviation input{
+  outline: none;
+  background-color: transparent;
+  height: 2rem;
+  border: 1px solid gray;
+  border-radius: 5px;
+  padding: 0.2rem;
+  font-size: 16px;
+}
+
+.abreviation p{
+  font-size: 18px;
+  font-weight: 500;
+  color: #D40000;
+}
+.type{
+  width: 55%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.type p {
+  font-size: 18px;
+  font-weight: 500;
+  color: #D40000;
+}
+
+.midFilialeSection{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.shortInputsSection{
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  justify-content: center;
+  align-items: flex-start;
+  width: 45%;
+}
+
+.shortInput{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+}
+
+.shortInput input {
+  outline: none;
+  background-color: transparent;
+  width: 55%;
+  height: 2rem;
+  border: 1px solid gray;
+  border-radius: 5px;
+  padding: 0.2rem;
+  font-size: 16px;
+}
+
+.shortInput p {
+  font-size: 18px;
+  font-weight: 500;
+  color: #D40000;
+}
+
+.filialeButtons{
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.filialeButtons p {
+  width: 15%;
+  background-color: #D40000;
+  height: 2.5rem;
+  border-radius: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  font-size: 18px;
+  font-weight: 500;
+  cursor: pointer;
+}
+
+.delete{
+  font-size: 20px;
+  font-weight: 500;
+}
+.filiale-form-delete{
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-direction: column;
+  gap: 3rem;
+}

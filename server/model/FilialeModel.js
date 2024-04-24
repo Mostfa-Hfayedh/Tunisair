@@ -1,18 +1,16 @@
 module.exports = (connection,DataTypes)=>{
     const Filiale = connection.define('Filiale',{
-        
-        Denomination:DataTypes.STRING,
-        Type:DataTypes.STRING,
-        Abreviation:DataTypes.STRING,
-        Adresse:DataTypes.STRING,
-        DirecteurGeneral:DataTypes.STRING,
-        ValeurNominale:DataTypes.INTEGER,
-        NombredeSiege:DataTypes.INTEGER,
-        IdentifiantUnique:DataTypes.STRING,
-        ActivitePreincipale:DataTypes.STRING,
-        ActiviteAnnexe:DataTypes.STRING,
-        Visavis:DataTypes.STRING,
-
+        denomination:DataTypes.STRING,
+        type:DataTypes.STRING,
+        abreviation:DataTypes.STRING,
+        adresse:DataTypes.STRING,
+        directeurGeneral:DataTypes.STRING,
+        valeurNominale:DataTypes.INTEGER,
+        nombredeSiege:DataTypes.INTEGER,
+        identifiantUnique:DataTypes.STRING,
+        activitePrincipale:DataTypes.STRING,
+        activiteAnnexe:DataTypes.STRING,
+        visavis:DataTypes.STRING,
     })
     return Filiale;
 }

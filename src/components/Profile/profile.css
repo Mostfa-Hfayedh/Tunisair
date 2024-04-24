@@ -1,0 +1,99 @@
+.profile{
+    width: 70%;
+    padding: 1rem;
+    background-color: white;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    flex-direction: column;
+    gap: 2.5rem;
+}
+
+.profileImage{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    width: 5.5rem;
+    height: 5.5rem;
+    overflow: hidden;
+}
+.profileImage input{
+    z-index: 1;
+    position: absolute;
+    height: 5rem;
+    width: 5rem;
+    opacity: 0;
+}
+.profileImage img {
+    width: 100%;
+    height: 100%;
+    z-index: 0;
+}
+.demiFieldsContainer{
+    padding: 0.5rem;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.inputContainer{
+    width: 45%;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+    gap: 0.5rem;
+    
+}
+
+.inputContainer input {
+    width: 100%;
+    padding: 0.5rem;
+    border: 1px solid #ccc;
+    outline: none;
+    padding: 0.2rem;
+    height: 2rem;
+    background-color: transparent;
+    border-radius: 5px;
+}
+.inputContainer p {
+    font-size: 16px;
+    font-weight: 500;
+    color: #D40000;
+}
+.longInputContainer {
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+}
+.longInputContainer input{ 
+    width: 100%;
+    padding: 0.5rem;
+    border: 1px solid #ccc;
+    outline: none;
+    padding: 0.2rem;
+    height: 2rem;
+    background-color: transparent;
+    border-radius: 5px;
+}
+.longInputContainer p {
+    font-size: 16px;
+    font-weight: 500;
+    color: #D40000;
+}
+
+.profileSubmit{
+    width: 30%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 3rem;
+    background-color: #D40000;
+    border-radius: 8px;
+    color: white;
+    cursor: pointer;
+}
