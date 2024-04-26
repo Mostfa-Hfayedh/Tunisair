@@ -47,12 +47,13 @@ const Vote = ({handleClose,ordre,open}) => {
           theme: "light",
         });
       };
-      const handleAdd = async () => {
+      const handleAdd = async (body) => {
         try {
           const token = localStorage.getItem("token");
           if (token) {
                 await axios.post(
-                    `http://localhost:3010/api/vote/create`
+                    `http://localhost:3010/api/vote/create`,
+                    body
                   );
                   notify();
                   handleClose();    
@@ -121,9 +122,12 @@ const Vote = ({handleClose,ordre,open}) => {
 
             <div className="filialeButtons">
               <Button  className="addButton" onClick={(e)=>{
-                handleAdd()
+                handleAdd({
+                  vote,
+                  OrderJourId : ordre.id
+                })
               }}>
-                Supprimer
+                Vote
               </Button>
               <Button onClick={handleClose} className="addButton">
                 Annuler

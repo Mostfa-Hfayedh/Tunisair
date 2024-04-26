@@ -8,7 +8,27 @@ import axios from "axios";
 import { toast } from "react-toastify";
 import { useLocation } from "react-router-dom";
 
+const style = {
+  position: "absolute",
+  top: "50%",
+  left: "50%",
+  transform: "translate(-50%, -50%)",
+  width: "35%",
+  bgcolor: "background.paper",
+  border: "1px solid #000",
+  boxShadow: 24,
+  p: 4,
+};
+
 const AddDocument = () => {
+  const [open, setOpen] = useState(false);
+
+  const location = useLocation()
+  const account = location.state.account
+
+
+  const handleOpen = () => setOpen(true);
+  const handleClose = () => setOpen(false);
   return (
     <div>
       {
@@ -42,13 +62,7 @@ const AddDocument = () => {
                 className="addButton"
                 onClick={(e) => {
                   e.preventDefault();
-                  handleAdd({
-                    TypeDaction : typeAction ,
-                    Nature : nature,
-                    Num : num,
-                    Description : description,
-                    ReunionId : reunion.id,
-                  })
+
                 }}
               >
                 Ajouter

@@ -2,6 +2,7 @@ import React from 'react'
 import './reunionPlat.css'
 import { useLocation } from 'react-router-dom'
 import OrdreDuJour from './OrdreDuJour'
+import Document from './Document'
 
 const ReunionPlat = () => {
     const location = useLocation()
@@ -16,6 +17,7 @@ const ReunionPlat = () => {
             <p>Date de Réunion : {reunion.date.substring(0,10)}</p>
         </div>
         <OrdreDuJour  reunion={reunion}/>
+        <Document />
     </div>
   )
 }

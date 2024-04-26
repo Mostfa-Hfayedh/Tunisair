@@ -28,7 +28,6 @@ const OneDocument = ({reload,setReload,document}) => {
     <p>Nature : {document.Nature}</p>
     <p>Type d'action : {document.TypeDaction}  </p>
     <DeleteDocument handleClose={handleCloseDelete} open={openDelete} reload={reload} setReload={setReload} document={document}/>
-    <Vote handleClose={handleCloseVote} open={openVote} document={document}  />
     <div className='one-filiale-buttons'>
         {
           account.role === 'Sécrétaire' ?

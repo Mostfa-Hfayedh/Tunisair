@@ -22,7 +22,7 @@ const OneOrdre = ({reload,setReload,ordre}) => {
     <div className='one-filiale'>
         <p>Name : {ordre.Num}</p>
         <p>Nature : {ordre.Nature}</p>
-        <p>Type d'action : {ordre.TypeDaction}  </p>
+        <p>Type d'action : {ordre.TypeDaction}</p>
         <DeleteOrdre handleClose={handleCloseDelete} open={openDelete} reload={reload} setReload={setReload} ordre={ordre}/>
         <Vote handleClose={handleCloseVote} open={openVote} ordre={ordre}  />
         <div className='one-filiale-buttons'>
