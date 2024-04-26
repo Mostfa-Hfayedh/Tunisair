@@ -57,5 +57,27 @@ module.exports = {
         } catch (error) {
             console.log(error)
         }
+    },
+    getAllCompteByFiliale : async (req,res) => {
+        try {
+            const allComptes = await db.Comptes.findAll({
+                where : { FilialeId : req.params.id}
+            })
+            res.json(allComptes)
+        } catch (error) {
+            console.log(error)
+        }
+    },
+    getUsersById : async (req, res) => {
+        try {
+            let users = []
+            for ( key in req.body) {
+                const user = await db.Utilisateur.findByPk(req.body[key])
+                users.push(user)
+            }
+            res.json(users)
+        } catch (error) {
+            console.log(error)
+        }
     }
 }

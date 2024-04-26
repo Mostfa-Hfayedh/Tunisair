@@ -25,7 +25,7 @@ app.use(express.json())
 
 app.use("/api/Filiale", FilialeRoute)
 app.use("/api/Pv", PvRoute)
-app.use("/api/Reunion", ReunionRoute)
+app.use("/api/reunion", ReunionRoute)
 app.use("/api/utilisateur", utilisateurRoute)
 app.use("/api/comptes", comptesRouter)
 app.use("/api/vote", voteRoute)

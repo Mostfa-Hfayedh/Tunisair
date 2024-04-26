@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from 'react'
 import SideNav from "../Side-NavBar/SideNav"
-import "./gestion.css"
 import axios from 'axios'
 import { Outlet, useLocation } from 'react-router-dom'
+import "./gestion.css"
 
 const GestionnaireDash = () => {
   const [user,setUser] = useState({})

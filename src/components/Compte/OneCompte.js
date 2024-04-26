@@ -26,7 +26,7 @@ const OneCompte = ({account}) => {
     }
   };
   const navigation = () => {
-    return account.role === "Gestionnaire" ? "gestionnaireDash/profile" : account.role === "Actionnaire" ? "" : account.role === "Décideur" ? "" : account.role === "Administrateur" ? "" : account.role === "Sécrétaire" ? "" : ""
+    return account.role === "Gestionnaire" ? "gestionnaireDash/profile" : account.role === "Actionnaire" ? "actionnaireDash/profile" : account.role === "Décideur" ? "" : account.role === "Administrateur" ? "" : account.role === "Sécrétaire" ? "secretaireDash/profile" : ""
   }
 
   useEffect(()=>{

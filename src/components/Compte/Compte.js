@@ -14,10 +14,8 @@ function Compte() {
 
   const getAccountsByUser = async () => {
     try {
-      console.log("this",user);
       const data = await axios.get(`http://localhost:3010/api/comptes/getAllCompteByUser/${user}`)
       setAccounts(data.data)
-      console.log(data.data);
     } catch (error) {
       console.log(error);    
     }

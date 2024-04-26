@@ -74,7 +74,13 @@ const SideNav = ({ account }) => {
         )}
         {account.role === "Sécrétaire" ? (
           <>
-            <div className="sidenav-option">
+            <div
+              className="sidenav-option"
+              onClick={(e) => {
+                e.preventDefault();
+                navigate("reunions", { state: { account: account } });
+              }}
+            >
               <FontAwesomeIcon className="icons" icon={faUsers} />
               <p>Réunions</p>
             </div>

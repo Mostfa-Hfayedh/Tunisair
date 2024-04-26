@@ -1,12 +1,16 @@
 module.exports = (connection,DataTypes)=>{
     const Reunion = connection.define('Reunion',{
-        Name:DataTypes.STRING,
-        Data:DataTypes.DATE,
-        Heure:DataTypes.TIME,
+        name:DataTypes.STRING,
+        date:DataTypes.DATE,
         type : {
             type : DataTypes.ENUM ,
-            values : ['AGO','AGE','STAFF']
+            values : ['AGO','AGE','CA']
+        },
+        done : {
+            type : DataTypes.BOOLEAN ,
+            defaultValue : false
         }
+        
     })
     return Reunion;
 }

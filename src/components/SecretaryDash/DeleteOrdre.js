@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import Backdrop from "@mui/material/Backdrop";
 import Box from "@mui/material/Box";
 import Modal from "@mui/material/Modal";
@@ -8,19 +8,20 @@ import {toast } from "react-toastify";
 import axios from "axios";
 
 const style = {
-    position: "absolute",
-    top: "50%",
-    left: "50%",
-    transform: "translate(-50%, -50%)",
-    width: "45%",
-    bgcolor: "background.paper",
-    border: "1px solid #000",
-    boxShadow: 24,
-    p: 4,
-  };
+  position: "absolute",
+  top: "50%",
+  left: "50%",
+  transform: "translate(-50%, -50%)",
+  width: "45%",
+  bgcolor: "background.paper",
+  border: "1px solid #000",
+  boxShadow: 24,
+  p: 4,
+};
+
+const DeleteOrdre = ({ordre,reload,setReload,open,handleClose}) => {
 
 
-const DeleteCompte = ({reload,setReload,handleClose,open,compte}) => {
     const notifyError = () => {
         toast.error("Confirmer vos cordonnées", {
           position: "top-center",
@@ -35,7 +36,7 @@ const DeleteCompte = ({reload,setReload,handleClose,open,compte}) => {
       };
     
       const notify = () => {
-        toast.success("Utilisateur Supprimé", {
+        toast.success("Ordre de jour Supprimé", {
           position: "top-center",
           autoClose: 3000,
           hideProgressBar: false,
@@ -50,21 +51,21 @@ const DeleteCompte = ({reload,setReload,handleClose,open,compte}) => {
         try {
           const token = localStorage.getItem("token");
           if (token) {
-            console.log(compte);
                 await axios.delete(
-                    `http://localhost:3010/api/comptes/remove/${compte.id}`
+                    `http://localhost:3010/api/ordreJour/remove/${ordre.id}`
                   );
                   notify();
                   handleClose();
                   setReload(!reload)
-
+    
           }
         } catch (error) {
           console.log(error);
           notifyError();
         }
       };
-      
+
+
   return (
     <div>
     <Modal
@@ -83,8 +84,7 @@ const DeleteCompte = ({reload,setReload,handleClose,open,compte}) => {
       <Fade in={open}>
         <Box sx={style}>
           <div className="filiale-form-delete">
-
-            <p className="delete">Vous êtes sure vous voulez supprimer ce compte ?</p>
+            <p className="delete">Vous êtes sure vous voulez supprimer ce ordre ?</p>
             <div className="filialeButtons">
               <Button  className="addButton" onClick={(e)=>{
                 handleDelete()
@@ -103,4 +103,4 @@ const DeleteCompte = ({reload,setReload,handleClose,open,compte}) => {
   )
 }
 
-export default DeleteCompte
+export default DeleteOrdre

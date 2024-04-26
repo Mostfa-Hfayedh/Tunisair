@@ -3,6 +3,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import React, { useState } from 'react'
 import UpdateFiliale from './UpdateFiliale'
 import DeleteFiliale from './DeleteFiliale'
+import { ToastContainer } from 'react-toastify'
 
 const OneFiliale = ({filiale , reload , setReload}) => {
   const [openUpdate,setOpenUpdate] = useState(false)

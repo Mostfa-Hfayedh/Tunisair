@@ -57,6 +57,9 @@ Reunion.belongsTo(OrderJour)
 Reunion.belongsTo(Pv)
 Pv.belongsTo(Reunion)
 
+Filiale.hasMany(Reunion)
+Reunion.belongsTo(Filiale)
+
 Vote.belongsTo(OrderJour)
 OrderJour.belongsTo(Vote)
 

@@ -1,5 +1,5 @@
 const ordreJourRouter = require("express").Router()
-const {getAll,getOne,remove,update,create} = require("../controller/OrderJourController")
+const {getAll,getOne,remove,update,create, getAllByReunion} = require("../controller/OrderJourController")
 
 ordreJourRouter.get("/getAll",getAll)
 
@@ -10,6 +10,8 @@ ordreJourRouter.delete("/remove/:id",remove)
 ordreJourRouter.put("/update/:id",update)
 
 ordreJourRouter.post("/create",create)
+
+ordreJourRouter.get("/getAllByReunion/:id",getAllByReunion)
 
 
 

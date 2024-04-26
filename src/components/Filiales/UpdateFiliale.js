@@ -4,7 +4,7 @@ import Box from "@mui/material/Box";
 import Modal from "@mui/material/Modal";
 import Fade from "@mui/material/Fade";
 import Button from "@mui/material/Button";
-import { ToastContainer, toast } from "react-toastify";
+import {  toast } from "react-toastify";
 import axios from "axios";
 
 const style = {

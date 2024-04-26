@@ -4,8 +4,8 @@ import Box from "@mui/material/Box";
 import Modal from "@mui/material/Modal";
 import Fade from "@mui/material/Fade";
 import Button from "@mui/material/Button";
-import { ToastContainer, toast } from "react-toastify";
 import axios from "axios";
+import { toast } from "react-toastify";
 
 const style = {
   position: "absolute",
@@ -20,7 +20,6 @@ const style = {
 };
 
 const AddFiliale = ({reload , setReload}) => {
-  const [open, setOpen] = useState(false);
   const [denomination, setDenomination] = useState('')
   const [type, setType] = useState('')
   const [abreviation, setAbreviation] = useState('')
@@ -31,35 +30,39 @@ const AddFiliale = ({reload , setReload}) => {
   const [identifiantUnique, setIdentifiantUnique] = useState('')
   const [activitePrincipale, setActivitePrincipale] = useState('')
   const [activiteAnnexe, setActiviteAnnexe] = useState('')
+  const [open, setOpen] = useState(false);
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
 
 
   const notifyError = () => {
-    toast.error("Confirmer vos cordonnées", {
-      position: "top-center",
-      autoClose: 3000,
-      hideProgressBar: false,
-      closeOnClick: true,
-      pauseOnHover: false,
-      draggable: true,
-      progress: undefined,
-      theme: "light",
-    });
-  };
+		toast.error("Confirmer vos cordonnées", {
+		  position: "top-center",
+		  autoClose: 3000,
+		  hideProgressBar: false,
+		  closeOnClick: true,
+		  pauseOnHover: false,
+		  draggable: true,
+		  progress: undefined,
+		  theme: "light",
+		});
+	  };
+	
+	  const notify = () => {
+		toast.success("Filiale Crée", {
+		  position: "top-center",
+		  autoClose: 3000,
+		  hideProgressBar: false,
+		  closeOnClick: true,
+		  pauseOnHover: false,
+		  draggable: true,
+		  progress: undefined,
+		  theme: "light",
+		});
+	  };
 
-  const notify = () => {
-    toast.success("Filiale Crée", {
-      position: "top-center",
-      autoClose: 3000,
-      hideProgressBar: false,
-      closeOnClick: true,
-      pauseOnHover: false,
-      draggable: true,
-      progress: undefined,
-      theme: "light",
-    });
-  };
+
+
 
   const handleAdd = async (body) => {
     try {

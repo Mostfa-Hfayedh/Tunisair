@@ -2,10 +2,8 @@ const db = require('../database')
 module.exports = {
     getAll:async(req, res)=>{
         try {
-            const AllReunions = db.Reunion.findAll({})
-            res.json(AllReunions)
-            
-            
+            const reunions = await db.Reunion.findAll({})
+            res.json(reunions)
         } catch (error) {
             console.log(error)
             

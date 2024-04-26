@@ -1,9 +1,9 @@
 import { faEdit, faTrash } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import React, { useEffect, useState } from 'react'
+import axios from 'axios'
 import UpdateCompte from './UpdateCompte'
 import DeleteCompte from './DeleteCompte'
-import axios from 'axios'
 
 const OneAccount = ({reload , setReload , compte}) => {
     const [openUpdate,setOpenUpdate] = useState(false)

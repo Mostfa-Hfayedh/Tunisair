@@ -4,14 +4,14 @@
     display: flex;
     justify-content: flex-end;
     align-items: center;
-    margin-right: 15rem;
+    margin-right: 5rem;
 }
 
 .content{
-    width: 70%;
-    height: 80%;
+    width: 80%;
+    height: 70%;
     display: flex;
-    justify-content: flex-start;
-    align-items: center;
-
+    justify-content: center;
+    align-items: flex-start;
+    margin-top: 7%; 
 }

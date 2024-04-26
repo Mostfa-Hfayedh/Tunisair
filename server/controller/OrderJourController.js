@@ -66,5 +66,20 @@ module.exports = {
             console.log(error)
             
         }
-    }
+    },
+    getAllByReunion : async (req, res) => {
+        try {
+            const AllOrderJours = await db.OrderJour.findAll({
+                where:{
+                    ReunionId:req.params.id
+                }
+            })
+            res.json(AllOrderJours)
+            
+            
+        } catch (error) {
+            console.log(error)
+            
+        }
+    },
 }

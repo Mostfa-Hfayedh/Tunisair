@@ -3,7 +3,7 @@ import './Filiales.css'
 import OneFiliale from './OneFiliale'
 import AddFiliale from './AddFiliale'
 import axios from 'axios'
-import { ToastContainer } from 'react-toastify'
+import { ToastContainer, toast } from 'react-toastify'
 
 const Filiales = () => {
 	const [reload ,setReload] = useState(false)
@@ -13,11 +13,11 @@ const Filiales = () => {
 		try {
 			const response = await axios.get('http://localhost:3010/api/filiale/getAll')
             setFiliales(response.data)
-			console.log(response.data);
 		} catch (error) {
 			console.log(error);
 		}
 	}
+
 
 
 	useEffect(()=>{
@@ -29,7 +29,7 @@ const Filiales = () => {
 	<div className='filiales'>
 		<div className='filiales-header'>
 		<p className='filiales-titre'>Filiales</p>
-		<AddFiliale reload={reload} setReload={setReload}/>
+		<AddFiliale reload={reload} setReload={setReload} />
 		</div>
 		<div className='filiales-container'>
 			{

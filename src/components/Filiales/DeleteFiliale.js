@@ -67,7 +67,6 @@ const DeleteFiliale = ({handleClose , open , filiale , reload , setReload}) => {
       };
   return (
     <div>
-    <ToastContainer />
     <Modal
       aria-labelledby="transition-modal-title"
       aria-describedby="transition-modal-description"
