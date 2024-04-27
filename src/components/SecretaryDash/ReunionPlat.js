@@ -3,6 +3,10 @@ import './reunionPlat.css'
 import { useLocation } from 'react-router-dom'
 import OrdreDuJour from './OrdreDuJour'
 import Document from './Document'
+import Recommandation from './Recommandation'
+import Presence from './Presence'
+
+
 
 const ReunionPlat = () => {
     const location = useLocation()
@@ -18,6 +22,8 @@ const ReunionPlat = () => {
         </div>
         <OrdreDuJour  reunion={reunion}/>
         <Document />
+        <Presence />
+        <Recommandation/>
     </div>
   )
 }

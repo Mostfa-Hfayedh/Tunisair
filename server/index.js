@@ -11,6 +11,11 @@ const voteRoute = require("./router/VoteRouter")
 const fonctionRoute = require("./router/FonctionRoute")
 const ReferenielRoute = require("./router/ReferenielRoute")
 const ordreJourRoute = require("./router/OrdreJourRoute")
+const DocumentRoute = require("./router/DocumentRouter")
+const InvitationRoute = require("./router/InvitationRouter")
+const RecommandationRoute = require("./router/RecommandationRouter")
+
+
 
 
 
@@ -32,6 +37,10 @@ app.use("/api/vote", voteRoute)
 app.use("/api/fonction", fonctionRoute)
 app.use("/api/referniel", ReferenielRoute)
 app.use("/api/ordreJour", ordreJourRoute)
+app.use("/api/document", DocumentRoute)
+app.use("/api/invitation", InvitationRoute)
+app.use("/api/recommandation", RecommandationRoute)
+
 
 
 

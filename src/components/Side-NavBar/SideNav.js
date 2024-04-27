@@ -84,7 +84,12 @@ const SideNav = ({ account }) => {
               <FontAwesomeIcon className="icons" icon={faUsers} />
               <p>Réunions</p>
             </div>
-            <div className="sidenav-option">
+            <div className="sidenav-option" 
+            onClick={(e) => {
+              e.preventDefault();
+              navigate("Pv", { state: { account: account } });
+            }}
+            >
               <FontAwesomeIcon className="icons" icon={faFile} />
               <p>PV</p>
             </div>
@@ -98,7 +103,11 @@ const SideNav = ({ account }) => {
         )}
         {account.role === "Actionnaire" ? (
           <>
-            <div className="sidenav-option">
+            <div className="sidenav-option"
+              onClick={(e) => {
+                e.preventDefault();
+                navigate("invitation", { state: { account: account } });
+              }}>
               <FontAwesomeIcon className="icons" icon={faMessage} />
               <p>Invitaions</p>
             </div>
@@ -112,7 +121,12 @@ const SideNav = ({ account }) => {
               <FontAwesomeIcon className="icons" icon={faBuilding} />
               <p>Filiale</p>
             </div>
-            <div className="sidenav-option">
+            <div className="sidenav-option"
+            onClick={(e) => {
+              e.preventDefault();
+              navigate("Pv", { state: { account: account } });
+            }}
+            >
               <FontAwesomeIcon className="icons" icon={faFile} />
               <p>PV</p>
             </div>
@@ -126,7 +140,12 @@ const SideNav = ({ account }) => {
         )}
         {account.role === "Administrateur" ? (
           <>
-            <div className="sidenav-option">
+            <div className="sidenav-option"
+            onClick={(e) => {
+              e.preventDefault();
+              navigate("invitation", { state: { account: account } });
+            }}
+            >
               <FontAwesomeIcon className="icons" icon={faMessage} />
               <p>Invitations</p>
             </div>

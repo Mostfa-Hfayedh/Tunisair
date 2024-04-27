@@ -11,6 +11,8 @@ import ActionnaireDash from './components/ActionnaireDash/ActionnaireDash';
 import SecretaryDash from './components/SecretaryDash/SecretaryDash';
 import Reunions from './components/Reunions/Reunions';
 import ReunionPlat from './components/SecretaryDash/ReunionPlat';
+import Invitation from './components/Invitation/Invitation';
+import Pv from './components/Pv/Pv';
 
 function App() {
   return (
@@ -26,11 +28,13 @@ function App() {
         </Route>
         <Route path='/actionnaireDash' Component={ActionnaireDash}>
             <Route path='profile' Component={Profile}/>
+            <Route path='invitation' Component={Invitation}/>
         </Route>
         <Route path='/secretaireDash' Component={SecretaryDash}>
             <Route path='profile' Component={Profile}/>
             <Route path='reunions' Component={Reunions}/> 
             <Route path='reunionPlat' Component={ReunionPlat}/>
+            <Route path='Pv' Component={Pv}/>
         </Route>
 
       </Routes>
