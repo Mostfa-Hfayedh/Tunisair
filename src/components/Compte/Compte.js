@@ -3,8 +3,20 @@ import "./Compte.css";
 import OneCompte from "./OneCompte";
 import axios from "axios";
 import { useLocation } from "react-router-dom";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import {
+  faAddressBook,
+  faBuilding,
+  faCircleUser,
+  faFile,
+  faMessage,
+  faRightFromBracket,
+  faUsers,
+} from "@fortawesome/free-solid-svg-icons";
+import { useNavigate } from "react-router-dom";
 
 function Compte() {
+  const navigate = useNavigate();
   const [accounts,setAccounts] = useState([])
   const location = useLocation()
 
@@ -28,6 +40,17 @@ function Compte() {
 
   return (
     <div className="compteContainer">
+      <div
+        className="Log-out"
+        onClick={(e) => {
+          e.preventDefault();
+          localStorage.removeItem("token");
+          navigate("/");
+        }}
+      >
+        <FontAwesomeIcon className="icons" icon={faRightFromBracket} />
+        <p>Log Out</p>
+      </div>
       {
         accounts.map((account , index) => {
           return (

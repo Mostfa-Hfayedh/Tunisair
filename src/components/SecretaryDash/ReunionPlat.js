@@ -21,7 +21,7 @@ const ReunionPlat = () => {
             <p>Date de Réunion : {reunion.date.substring(0,10)}</p>
         </div>
         <OrdreDuJour  reunion={reunion}/>
-        <Document />
+        <Document reunion={reunion}/>
         <Presence />
         <Recommandation/>
     </div>

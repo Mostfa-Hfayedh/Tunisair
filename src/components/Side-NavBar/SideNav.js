@@ -93,10 +93,6 @@ const SideNav = ({ account }) => {
               <FontAwesomeIcon className="icons" icon={faFile} />
               <p>PV</p>
             </div>
-            <div className="sidenav-option">
-              <FontAwesomeIcon className="icons" icon={faMessage} />
-              <p>Inviter</p>
-            </div>
           </>
         ) : (
           <></>
@@ -162,8 +158,8 @@ const SideNav = ({ account }) => {
         className="sidenav-option"
         onClick={(e) => {
           e.preventDefault();
-          localStorage.removeItem("token");
-          navigate("/");
+          
+          navigate("/comptes");
         }}
       >
         <FontAwesomeIcon className="icons" icon={faRightFromBracket} />

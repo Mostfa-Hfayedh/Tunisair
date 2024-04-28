@@ -5,20 +5,33 @@ import OneDocument from './OneDocument'
 import AddDocument from './AddDocument'
 
 
-const Document = () => {
+const Document = ({reunion}) => {
   const [reload ,setReload] = useState(false)
   const [Document,setDocument] = useState([])
+  const [Documents,setDocuments] = useState([])
+
+  const fetchDocuments = async () => {
+    try {
+      const response = await axios.get(`http://localhost:3010/api/document/getAllByReunion/${reunion.id}`)
+      setDocuments(response.data)
+    } catch (error) {
+      console.log(error);
+    }
+  }
+  useEffect(()=>{
+    fetchDocuments()
+  },[reload])
 
 
   return (
     <div className='filiales'>  
     <div className='filiales-header'>
     <p className='filiales-titre'>Documents</p>
-    <AddDocument reload={reload} setReload={setReload} />
+    <AddDocument reunion={reunion} reload={reload} setReload={setReload} />
     </div>
     <div className='filiales-container'>
         {
-            Document.map((document,index)=>{
+            Documents.map((document,index)=>{
                 return <OneDocument key={index} document={document} reload={reload} setReload={setReload} />
             })
         }

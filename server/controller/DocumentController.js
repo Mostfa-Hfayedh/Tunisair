@@ -65,5 +65,20 @@ module.exports = {
             console.log(error)
             
         }
-    }
+    },
+    getAllByReunion : async (req, res) => {
+        try {
+            const AllDocuments = await db.Document.findAll({
+                where:{
+                    ReunionId:req.params.id
+                }
+            })
+            res.json(AllDocuments)
+            
+            
+        } catch (error) {
+            console.log(error)
+            
+        }
+    },
 }

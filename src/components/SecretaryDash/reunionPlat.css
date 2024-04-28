@@ -22,3 +22,78 @@
     font-weight: 600;
     color: #D40000;
 }
+
+.input-D {
+    max-width: 190px;
+    display: none;
+  }
+  
+  .labelFile-D {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 250px;
+    height: 190px;
+    border: 2px dashed #ccc;
+    align-items: center;
+    text-align: center;
+    padding: 5px;
+    color: #404040;
+    cursor: pointer;
+  }
+
+  .selectedFile-D{
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    align-items: center;
+    text-align: center;
+    padding-top:20px ;
+    font-size: 20px;
+    font-weight: 500;
+    color: #D40000;
+  }
+
+  .inputSection{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .inputFileContainer{
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    gap: 0.5rem;
+    padding-bottom: 0,5rem !important;
+  }
+  .inputFileContainer input {
+    width: 60%;
+    padding: 0.5rem;
+    border: 1px solid #ccc;
+    outline: none;
+    padding: 0.2rem;
+    height: 2rem;
+    background-color: transparent;
+    border-radius: 5px;
+}
+.inputFileContainer p {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    width: 20%;
+    font-size: 16px;
+    font-weight: 500;
+    color: #D40000;
+}
+ 
+.document-form{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    width:100%;
+    gap: 2rem;
+  }
+  

@@ -29,7 +29,7 @@ const Invitation = () => {
 		<p className='filiales-titre'>Invitation</p>
 		</div>
 		<div className='filiales-container'>
-            <OneInvitation/>
+            
 			{
 				invitations?.map((invitation,index)=>{
                     if(!invitation.done){

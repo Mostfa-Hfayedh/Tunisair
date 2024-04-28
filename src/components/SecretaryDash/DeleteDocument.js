@@ -52,7 +52,7 @@ const DeleteDocument = ({document,reload,setReload,open,handleClose}) => {
           const token = localStorage.getItem("token");
           if (token) {
                 await axios.delete(
-                    `http://localhost:3010/api/ordreJour/remove/${document.id}`
+                    `http://localhost:3010/api/document/remove/${document.id}`
                   );
                   notify();
                   handleClose();
