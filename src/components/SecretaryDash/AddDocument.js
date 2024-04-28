@@ -20,7 +20,7 @@ const style = {
   p: 4,
 };
 
-const AddDocument = ({reunion}) => {
+const AddDocument = ({reunion,reload,setReload}) => {
   const [open, setOpen] = useState(false);
   const [document, setDocument] = useState("");
   const [nom, setNom] = useState("");
@@ -36,6 +36,19 @@ const AddDocument = ({reunion}) => {
 
   const notify = () => {
     toast.success("Document ajouteé", {
+      position: "top-center",
+      autoClose: 3000,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: false,
+      draggable: true,
+      progress: undefined,
+      theme: "light",
+    });
+  };
+  
+  const notifyError = () => {
+    toast.error("Confirmer vos cordonnées", {
       position: "top-center",
       autoClose: 3000,
       hideProgressBar: false,
@@ -151,7 +164,7 @@ const AddDocument = ({reunion}) => {
                       </g>
                     </svg>
                   </span>
-                  <p>drag and drop your file here or click to select a file!</p>
+                  <p> click to select a file!</p>
                 </label>
                 <input
                   className="input-D"

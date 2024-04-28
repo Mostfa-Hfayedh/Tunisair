@@ -12,7 +12,7 @@ import {
 } from "@fortawesome/free-solid-svg-icons";
 import { useNavigate } from "react-router-dom";
 
-const SideNav = ({ account }) => {
+const SideNav = ({ account , user}) => {
   const navigate = useNavigate();
 
   return (
@@ -159,7 +159,7 @@ const SideNav = ({ account }) => {
         onClick={(e) => {
           e.preventDefault();
           
-          navigate("/comptes");
+          navigate("/comptes" ,  {state : {userId : user.id}});
         }}
       >
         <FontAwesomeIcon className="icons" icon={faRightFromBracket} />

@@ -2,16 +2,19 @@ import React, { useEffect, useState } from 'react'
 import axios from 'axios'
 import { ToastContainer, toast } from 'react-toastify'
 import OneInvitation from './OneInvitation'
+import { useLocation } from 'react-router-dom'
 
 
 const Invitation = () => {
 
     const [reload ,setReload] = useState(false)
 	const [invitations,setInvitations] = useState([])
+	const location = useLocation()
+	const account = location.state.account
 
-	const fetchReunions = async () => {
+	const fetchInvitation = async () => {
 		try {
-			const response = await axios.get('')
+			const response = await axios.get(`http://localhost:3010/api/invitation/getByCompte/${account.id}`)
             setInvitations(response.data)
 		} catch (error) {
 			console.log(error);
@@ -20,7 +23,7 @@ const Invitation = () => {
 
 	
 	useEffect(()=>{
-		fetchReunions()
+		fetchInvitation()
 	},[reload])
 
   return (
@@ -29,7 +32,6 @@ const Invitation = () => {
 		<p className='filiales-titre'>Invitation</p>
 		</div>
 		<div className='filiales-container'>
-            
 			{
 				invitations?.map((invitation,index)=>{
                     if(!invitation.done){
@@ -37,7 +39,7 @@ const Invitation = () => {
 					}
                 })
 			}
-		</div> 
+		</div>
 		<ToastContainer />
 	</div>
   )

@@ -2,8 +2,8 @@ const db = require('../database')
 module.exports = {
     getAll:async(req, res)=>{
         try {
-            const invitation = await db.Invitation.findAll({})
-            res.json(invitation)
+            const Presence = await db.Presence.findAll({})
+            res.json(Presence)
             
         } catch (error) {
             console.log(error)
@@ -12,12 +12,12 @@ module.exports = {
     },
     getOne:async(req, res)=>{
         try {
-            const invitation = await db.Invitation.findOne({
+            const Presence = await db.Presence.findOne({
                 where:{
                     id:req.params.id
                 }
             })
-            res.json(invitation)
+            res.json(Presence)
             
             
         } catch (error) {
@@ -27,8 +27,8 @@ module.exports = {
     },
     create:async(req, res)=>{
         try {
-            const invitation = await db.Invitation.create(req.body)
-            res.json(invitation)
+            const Presence = await db.Presence.create(req.body)
+            res.json(Presence)
             
             
         } catch (error) {
@@ -38,12 +38,12 @@ module.exports = {
     },
     update:async(req, res)=>{
         try {
-            const invitation = await db.Invitation.update(req.body, {
+            const Presence = await db.Presence.update(req.body, {
                 where:{
                     id:req.params.id
                 }
             })
-            res.json(invitation)
+            res.json(Presence)
             
             
         } catch (error) {
@@ -53,12 +53,12 @@ module.exports = {
     },
     remove:async(req, res)=>{
         try {
-            const invitation = await db.Invitation.destroy({
+            const Presence = await db.Presence.destroy({
                 where:{
                     id:req.params.id
                 }
             })
-            res.json(invitation)
+            res.json(Presence)
             
             
         } catch (error) {
@@ -66,16 +66,13 @@ module.exports = {
             
         }
     },
-    getByCompte : async (req, res)=>{
+    getPresenceByReunion:async(req, res)=>{
         try {
-            const invitation = await db.Invitation.findAll({
-                where:{
-                    CompteId:req.params.id
-                }
-            })
-            res.json(invitation)
+            const presence = await db.Presence.findAll({where : {ReunionId : req.params.id}})
+            res.json(presence)
         } catch (error) {
             console.log(error);
         }
-    }, 
+    },
+
 }

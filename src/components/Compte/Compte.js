@@ -39,9 +39,18 @@ function Compte() {
   },[])
 
   return (
+    <div className="comptes-page">
     <div className="compteContainer">
-      <div
-        className="Log-out"
+      {
+        accounts.map((account , index) => {
+          return (
+            <OneCompte key={index} account={account} user={user}/>
+          )
+        })
+      }
+    </div>
+            <div
+        className="logOut"
         onClick={(e) => {
           e.preventDefault();
           localStorage.removeItem("token");
@@ -51,13 +60,6 @@ function Compte() {
         <FontAwesomeIcon className="icons" icon={faRightFromBracket} />
         <p>Log Out</p>
       </div>
-      {
-        accounts.map((account , index) => {
-          return (
-            <OneCompte key={index} account={account} user={user}/>
-          )
-        })
-      }
     </div>
   );
 }

@@ -14,6 +14,7 @@ const ordreJourRoute = require("./router/OrdreJourRoute")
 const DocumentRoute = require("./router/DocumentRouter")
 const InvitationRoute = require("./router/InvitationRouter")
 const RecommandationRoute = require("./router/RecommandationRouter")
+const presenceRouter = require("./router/Presence.router")
 
 
 
@@ -40,6 +41,8 @@ app.use("/api/ordreJour", ordreJourRoute)
 app.use("/api/document", DocumentRoute)
 app.use("/api/invitation", InvitationRoute)
 app.use("/api/recommandation", RecommandationRoute)
+app.use("/api/presence",presenceRouter)
+
 
 
 

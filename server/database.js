@@ -30,6 +30,7 @@ const Vote = require("./model/VoteModel")(connection,DataTypes)
 const Document = require("./model/Document.Model")(connection,DataTypes)
 const Invitation = require("./model/Invitation.Model")(connection,DataTypes)
 const Recommandation = require("./model/Recommandation.Model")(connection,DataTypes)
+const Presence = require("./model/Presence.model")(connection,DataTypes)
 
 
 const db = {}
@@ -46,6 +47,7 @@ db.Vote = Vote
 db.Document = Document
 db.Invitation = Invitation
 db.Recommandation =Recommandation
+db.Presence = Presence
 
 Filiale.hasMany(Comptes)
 Comptes.belongsTo(Filiale)
@@ -82,6 +84,15 @@ Invitation.belongsTo(Comptes)
 
 Reunion.hasMany(Recommandation)
 Recommandation.belongsTo(Reunion)
+
+Reunion.hasMany(Presence)
+Presence.belongsTo(Reunion)
+
+Comptes.hasMany(Presence)
+Presence.belongsTo(Comptes)
+
+Utilisateur.hasMany(Presence)
+Presence.belongsTo(Utilisateur)
 
 
 

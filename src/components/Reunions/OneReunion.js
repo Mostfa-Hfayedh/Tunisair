@@ -8,7 +8,7 @@ import { useLocation, useNavigate } from 'react-router-dom'
 const OneReunion = ({reload,setReload,reunion}) => {
   const [openUpdate,setOpenUpdate] = useState(false)
   const [openDelete,setOpenDelete] = useState(false)
-  const [date,setDate] = useState(false)
+  const [date,setDate] = useState('')
   const navigate = useNavigate()
   const location = useLocation()
   const account = location.state.account

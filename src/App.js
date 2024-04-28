@@ -29,6 +29,7 @@ function App() {
         <Route path='/actionnaireDash' Component={ActionnaireDash}>
             <Route path='profile' Component={Profile}/>
             <Route path='invitation' Component={Invitation}/>
+            <Route path='reunionPlat' Component={ReunionPlat}/>
         </Route>
         <Route path='/secretaireDash' Component={SecretaryDash}>
             <Route path='profile' Component={Profile}/>

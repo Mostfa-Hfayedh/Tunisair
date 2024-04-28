@@ -33,6 +33,7 @@ const AddReunion = ({reload,setReload}) => {
   const [selectedUsers,setSelectedUsers] = useState([])
   const [name, setName] = useState('')
   const [date, setDate] = useState('')
+  const [comptes , setComptes] = useState([]);
   const location = useLocation()
   const account = location.state.account
 
@@ -95,6 +96,7 @@ const AddReunion = ({reload,setReload}) => {
         const token = localStorage.getItem('token');
         if(token){
           const comptes = await axios.get(`http://localhost:3010/api/comptes/getAllCompteByFiliale/${account.FilialeId}`)
+          setComptes(comptes.data)
           const filter1 = comptes.data.filter((compte)=>{
             return compte.id!== account.id
           })
@@ -125,11 +127,18 @@ const AddReunion = ({reload,setReload}) => {
       try {
         const token = localStorage.getItem("token");
         if (token) {
-          if(name && date && type ){
+          if(name && date && type && selectedUsers){
+
             const res = await axios.post(
               "http://localhost:3010/api/reunion/create",
               body
             );
+            for (let compte of comptes){
+              await axios.post('http://localhost:3010/api/invitation/create',{
+                ReunionId : res.data.id ,
+                CompteId : compte.id
+              })
+            }
             notify();
             handleClose();
             setReload(!reload)

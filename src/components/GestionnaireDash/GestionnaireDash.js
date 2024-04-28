@@ -36,7 +36,7 @@ const GestionnaireDash = () => {
 
   return (
     <div className='dash'>  
-        <SideNav account={account}/>
+        <SideNav account={account} user={user} />
         <div className='content'>
             <Outlet />
         </div>

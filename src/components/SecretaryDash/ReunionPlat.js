@@ -22,8 +22,8 @@ const ReunionPlat = () => {
         </div>
         <OrdreDuJour  reunion={reunion}/>
         <Document reunion={reunion}/>
-        <Presence />
-        <Recommandation/>
+        <Presence reunion={reunion} />
+        <Recommandation reunion={reunion} />
     </div>
   )
 }

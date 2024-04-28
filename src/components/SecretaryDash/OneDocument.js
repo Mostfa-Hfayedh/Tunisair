@@ -13,8 +13,9 @@ const OneDocument = ({ reload, setReload, document }) => {
   const handleOpenDelete = () => setOpenDelete(true);
   const handleCloseDelete = () => setOpenDelete(false);
 
-  const handleOpenVote = () => setOpenVote(true);
-  const handleCloseVote = () => setOpenVote(false);
+  const openNewWindow = (url) => {
+    window.open(url, '_blank');
+  }
 
   return (
     <div className="one-filiale">
@@ -30,6 +31,9 @@ const OneDocument = ({ reload, setReload, document }) => {
       <FontAwesomeIcon
             icon={faShare}
             className="one-filiale-icons"
+            onClick={(e)=>{
+              openNewWindow(document.url)
+            }}
           />
         {account.role === "Sécrétaire" ? (
           <FontAwesomeIcon
