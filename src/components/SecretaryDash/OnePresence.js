@@ -16,18 +16,12 @@ const OnePresence = ({presence}) => {
   const location = useLocation()
   const account = location.state.account
 
-  const getUser = async () => {
-    try {
-      const user = await axios.get(`http://localhost:3010/api/utilisateur/getOne/${presence.UtilisateurId}`)
-      setUser(user.data)
-    } catch (error) {
-      console.log(error);
-    }
-  }
 
   const getCompte = async () => {
     try {
       const compte = await axios.get(`http://localhost:3010/api/comptes/getOne/${presence.CompteId}`)
+      const user = await axios.get(`http://localhost:3010/api/utilisateur/getOne/${compte.data.UtilisateurId}`)
+      setUser(user.data)
       setCompte(compte.data)
 
     } catch (error) {
@@ -37,7 +31,6 @@ const OnePresence = ({presence}) => {
 
 
   useEffect(()=>{
-    getUser()
     getCompte()
   },[])
 
@@ -45,8 +38,11 @@ const OnePresence = ({presence}) => {
 
   return (
     <div className='one-filiale'>
-    <p>Name : {user.name}</p>
-    <p>role : {compte.role}</p>
+    <p>Name : {user?.name}</p>
+    <p>role : {compte?.role}</p>
+    {
+      presence.presence ? <p>Présent</p> : <></>
+    }
 </div>
   )
 }

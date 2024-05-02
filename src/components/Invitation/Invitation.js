@@ -35,7 +35,7 @@ const Invitation = () => {
 			{
 				invitations?.map((invitation,index)=>{
                     if(!invitation.done){
-						return <OneInvitation key={index} invitation={invitation} reload={reload} setReload={setReload} />
+						return <OneInvitation key={index} invitation={invitation} reload={reload} setReload={setReload}  />
 					}
                 })
 			}

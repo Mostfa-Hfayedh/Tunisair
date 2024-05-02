@@ -48,6 +48,20 @@ const Recommandation = ({reunion}) => {
       console.log(error);
     }
   }
+
+  function dateDiffInDays(date1, date2) {
+    // Convert both dates to milliseconds
+    const date1MS = date1.getTime();
+    const date2MS = date2.getTime();
+  
+    // Calculate the difference in milliseconds
+    const differenceMS =(date1MS - date2MS);
+  
+    // Convert the difference to days
+    const differenceDays = Math.ceil(differenceMS / (1000 * 60 * 60 * 24));
+    console.log(differenceDays);
+    return differenceDays;
+    }
   
   
   
@@ -63,16 +77,19 @@ const Recommandation = ({reunion}) => {
     <div className='filiales-container'>
         {
             recommandation.map((recommandation,index)=>{
-                return <OneRecommandation key={index} recommandation={recommandation} reload={reload} setReload={setReload} />
+                return <OneRecommandation key={index} recommandation={recommandation} reload={reload} setReload={setReload}  />
             })
         }
-       <div className='addRcm'>
+        {
+          dateDiffInDays(new Date(reunion?.date),new Date()) === 0 ? 
+          <div className='addRcm'>
           <input type='text' onChange={(e)=>setContent(e.target.value)}/>
           <p onClick={(e)=>{
             e.preventDefault()
             handleAdd()
           }}>Ajouter Recommandation</p>
-        </div> 
+        </div>  : <></>
+        }
     </div>
     <ToastContainer />
 </div>

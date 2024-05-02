@@ -78,4 +78,12 @@ module.exports = {
             console.log(error);
         }
     }, 
+    getByReunion : async (req, res)=>{
+        try {
+            const invitation = await db.Invitation.findAll({where:{ReunionId:req.params.id}})
+            res.json(invitation)
+        } catch (error) {
+            console.log(error);
+        }
+    }
 }

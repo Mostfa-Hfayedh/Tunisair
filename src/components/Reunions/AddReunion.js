@@ -134,10 +134,12 @@ const AddReunion = ({reload,setReload}) => {
               body
             );
             for (let compte of comptes){
-              await axios.post('http://localhost:3010/api/invitation/create',{
-                ReunionId : res.data.id ,
-                CompteId : compte.id
-              })
+              if(compte.role !== "Sécrétaire"  && compte.role !== "Gestionnaire"){
+                await axios.post('http://localhost:3010/api/invitation/create',{
+                  ReunionId : res.data.id ,
+                  CompteId : compte.id
+                })
+              }
             }
             notify();
             handleClose();

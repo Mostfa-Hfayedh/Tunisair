@@ -22,9 +22,13 @@ const OneInvitation = ({invitation}) => {
   }
 
 
-  const handleAddPresence = async (body) => {
+  const handleAddPresence = async () => {
     try {
-      await axios.post('http://localhost:3010/api/presence/create',body)
+      if(dateDiffInDays(new Date(reunion?.date),new Date()) === 0){
+        await axios.put(`http://localhost:3010/api/invitation/update/${invitation.id}`,{
+          presence : true
+        })
+      }
     } catch (error) {
       console.log(error);
     }
@@ -40,6 +44,19 @@ const OneInvitation = ({invitation}) => {
     
     return formattedDate;
 }
+function dateDiffInDays(date1, date2) {
+  // Convert both dates to milliseconds
+  const date1MS = date1.getTime();
+  const date2MS = date2.getTime();
+
+  // Calculate the difference in milliseconds
+  const differenceMS =(date1MS - date2MS);
+
+  // Convert the difference to days
+  const differenceDays = Math.ceil(differenceMS / (1000 * 60 * 60 * 24));
+  console.log(differenceDays);
+  return differenceDays;
+  }
 
 
   useEffect(()=>{
@@ -50,20 +67,14 @@ const OneInvitation = ({invitation}) => {
 
   return (
     <div className='one-filiale'>
-        <p>Nom : {reunion.name}</p>
+        <p>Nom : {reunion?.name}</p>
         <p>Date : {reunion?.date?.substring(0,10)}</p>
         {
-            reunion?.date?.substring(0,10) === date ? 
+            dateDiffInDays(new Date(reunion?.date),new Date()) >= 0 ? 
             <p className='visitButton' onClick={(e)=>{
               e.preventDefault();
               navigate(`/actionnaireDash/reunionPlat`,{ state: { account: account , reunion : reunion} })
-              handleAddPresence({
-
-                ReunionId:invitation.ReunionId,
-                CompteId : account.id,
-                UtilisateurId : account.UtilisateurId
-
-              })
+              handleAddPresence()
             }}>Visiter</p> : <></>
           }
 

@@ -35,7 +35,7 @@ useEffect(()=>{
 		<div className='filiales-container'>
 			{
 				ordres.map((ordre,index)=>{
-                    return <OneOrdre key={index} ordre={ordre} reload={reload} setReload={setReload} />
+                    return <OneOrdre key={index} ordre={ordre} reload={reload} setReload={setReload} reunion={reunion} />
                 })
 			}
 		</div>

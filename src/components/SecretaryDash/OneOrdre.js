@@ -4,7 +4,7 @@ import React, { useEffect, useState } from 'react'
 import { useLocation, useNavigate } from 'react-router-dom'
 import DeleteOrdre from './DeleteOrdre'
 import Vote from './Vote'
-const OneOrdre = ({reload,setReload,ordre}) => {
+const OneOrdre = ({reload,setReload,ordre,reunion}) => {
   const [openDelete,setOpenDelete] = useState(false)
   const [openVote,setOpenVote] = useState(false)
   const navigate = useNavigate()
@@ -16,6 +16,20 @@ const OneOrdre = ({reload,setReload,ordre}) => {
 
   const handleOpenVote = () => setOpenVote(true);
   const handleCloseVote = () => setOpenVote(false);
+
+  function dateDiffInDays(date1, date2) {
+    // Convert both dates to milliseconds
+    const date1MS = date1.getTime();
+    const date2MS = date2.getTime();
+  
+    // Calculate the difference in milliseconds
+    const differenceMS =(date1MS - date2MS);
+  
+    // Convert the difference to days
+    const differenceDays = Math.ceil(differenceMS / (1000 * 60 * 60 * 24));
+    console.log(differenceDays);
+    return differenceDays;
+    }
 
 
   return (
@@ -32,7 +46,7 @@ const OneOrdre = ({reload,setReload,ordre}) => {
               : null
             }
             {
-            account.role !== 'Sécrétaire' ?
+            account.role !== 'Sécrétaire' && dateDiffInDays(new Date(reunion?.date),new Date()) === 0?
               <FontAwesomeIcon icon={faGavel} className='one-filiale-icons' onClick={handleOpenVote} />
               : null
             }

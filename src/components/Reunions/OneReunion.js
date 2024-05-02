@@ -29,6 +29,19 @@ const OneReunion = ({reload,setReload,reunion}) => {
     return formattedDate;
 }
 
+function dateDiffInDays(date1, date2) {
+  // Convert both dates to milliseconds
+  const date1MS = date1.getTime();
+  const date2MS = date2.getTime();
+
+  // Calculate the difference in milliseconds
+  const differenceMS =(date1MS - date2MS);
+
+  // Convert the difference to days
+  const differenceDays = Math.ceil(differenceMS / (1000 * 60 * 60 * 24));
+  console.log(differenceDays);
+  return differenceDays;
+  }
   useEffect(()=>{
     setDate(formatDateToYYMMDD(new Date()))
   },[])
@@ -42,7 +55,7 @@ const OneReunion = ({reload,setReload,reunion}) => {
         <p>Type : {reunion.type} </p>
         <DeleteReunion handleClose={handleCloseDelete} open={openDelete} reload={reload} setReload={setReload} reunion={reunion}/>
           {
-            reunion.date.substring(0,10) === date ? 
+            dateDiffInDays(new Date(reunion.date),new Date(date)) >= 0 ? 
             <p className='visitButton' onClick={(e)=>{
               e.preventDefault();
               navigate(`/secretaireDash/reunionPlat`,{ state: { account: account , reunion : reunion} })
