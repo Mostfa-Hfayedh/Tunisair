@@ -80,7 +80,7 @@ const AddDocument = ({reunion,reload,setReload}) => {
   };
 
   const documentUpload = async (e) => {
-    const formData = new FormData();
+    const formData = new FormData(); 
     formData.append("file", e.target.files[0]);
     formData.append("upload_preset", "oztadvnr");
     await axios

@@ -20,7 +20,7 @@ const Presence = ({reunion}) => {
 
   const getPresence = async () => {
     try {
-      const presence = await axios.get(`http://localhost:3010/api/presence/getPresenceByReunion/${reunion.id}`)
+      const presence = await axios.get(`http://localhost:3010/api/invitation/getByReunion/${reunion.id}`)
       console.log(presence.data);
       setPresence(removeDuplicatesByKey(presence.data,'CompteId'))
     } catch (error) {
