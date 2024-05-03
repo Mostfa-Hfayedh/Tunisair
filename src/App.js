@@ -13,6 +13,7 @@ import Reunions from './components/Reunions/Reunions';
 import ReunionPlat from './components/SecretaryDash/ReunionPlat';
 import Invitation from './components/Invitation/Invitation';
 import Pv from './components/Pv/Pv';
+import Refereniel from './components/Refereniel/Refereniel';
 
 function App() {
   return (
@@ -30,12 +31,14 @@ function App() {
             <Route path='profile' Component={Profile}/>
             <Route path='invitation' Component={Invitation}/>
             <Route path='reunionPlat' Component={ReunionPlat}/>
+            <Route path='refereniel' Component={Refereniel}/>
         </Route>
         <Route path='/secretaireDash' Component={SecretaryDash}>
             <Route path='profile' Component={Profile}/>
             <Route path='reunions' Component={Reunions}/> 
             <Route path='reunionPlat' Component={ReunionPlat}/>
             <Route path='Pv' Component={Pv}/>
+            <Route path='refereniel' Component={Refereniel}/>
         </Route>
 
       </Routes>

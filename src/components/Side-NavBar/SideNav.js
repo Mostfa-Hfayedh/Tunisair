@@ -93,7 +93,17 @@ const SideNav = ({ account , user}) => {
               <FontAwesomeIcon className="icons" icon={faFile} />
               <p>PV</p>
             </div>
+            <div className="sidenav-option" 
+            onClick={(e) => {
+              e.preventDefault();
+              navigate("Refereniel", { state: { account: account } });
+            }}
+            >
+              <FontAwesomeIcon className="icons" icon={faFile} />
+              <p>Refereniel</p>
+            </div>
           </>
+          
         ) : (
           <></>
         )}

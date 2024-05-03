@@ -4,6 +4,9 @@ import axios from "axios";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
+
+
+
 const Profile = () => {
     const [user,setUser] = useState({})
     const [image,setImage] = useState("")
@@ -12,6 +15,7 @@ const Profile = () => {
     const [email,setEmail] = useState("")
     const [mobile,setMobile] = useState("")
     const [cin,setCin] = useState("")
+    const [error,setError] = useState({})
 
 
 
@@ -40,6 +44,8 @@ const Profile = () => {
           theme: "light",
         });
       };
+
+     
 
 
     const handleUpdate = async () => {
@@ -106,6 +112,11 @@ const Profile = () => {
         getUser()
       },[])
 
+
+    
+    
+     
+
   return (
     <div className="profile">
       <div className="profileImage">
@@ -125,7 +136,8 @@ const Profile = () => {
       <div className="demiFieldsContainer">
         <div className="inputContainer">
           <p>CIN</p>
-          <input type="text" value={cin} onChange={(e)=>setCin(e.target.value)} />
+          <input type="text" value={cin} onChange={(e)=>setCin(e.target.value)}  />
+          <p> rak 8alet</p>
         </div>
         <div className="inputContainer">
           <p>Email</p>
@@ -134,7 +146,7 @@ const Profile = () => {
       </div>
       <div className="longInputContainer">
         <p>Mobile</p>
-        <input type="text" value={mobile} onChange={(e)=>setMobile(e.target.value)} />
+        <input type="text" value={mobile} onChange={(e)=>setMobile(e.target.value)}  />
       </div>
       <ToastContainer/>
       <div className="profileSubmit" onClick={(e)=>{

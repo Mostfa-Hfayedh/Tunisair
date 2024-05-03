@@ -94,6 +94,9 @@ Presence.belongsTo(Comptes)
 Utilisateur.hasMany(Presence)
 Presence.belongsTo(Utilisateur)
 
+Filiale.hasMany(Refereniel)
+Refereniel.belongsTo(Filiale)
+
 
 
 

@@ -6,7 +6,9 @@ import Fade from "@mui/material/Fade";
 import Button from "@mui/material/Button";
 import axios from "axios";
 import { toast } from "react-toastify";
+import CryptoJS from 'crypto-js';
 import { useLocation } from "react-router-dom";
+
 
 const style = {
   position: "absolute",
@@ -82,15 +84,13 @@ const AddDocument = ({reunion,reload,setReload}) => {
   const documentUpload = async (e) => {
     const formData = new FormData(); 
     formData.append("file", e.target.files[0]);
-    formData.append("upload_preset", "oztadvnr");
-    await axios
-      .post("https://api.cloudinary.com/v1_1/dl4qexes8/upload", formData)
-      .then((response) => {
-        setDocument(response.data["secure_url"]);
-      })
-      .catch((error) => {
-        throw error;
-      });
+    formData.append("upload_preset", "lrgxjjs0");
+    try {
+      const response = await axios.post(`https://api.cloudinary.com/v1_1/dd26qho5n/upload`, formData);
+      setDocument(response.data["secure_url"]);
+    } catch (error) {
+      throw error;
+    }
   };
 
   return (
