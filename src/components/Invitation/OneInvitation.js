@@ -14,7 +14,6 @@ const OneInvitation = ({invitation}) => {
   const getReunion = async () => {
     try {
       const response = await axios.get(`http://localhost:3010/api/reunion/getOne/${invitation.ReunionId}`)
-      console.log(response.data);
       setReunion(response.data)
     } catch (error) {
       console.log(error);
@@ -46,6 +45,7 @@ const OneInvitation = ({invitation}) => {
 }
 function dateDiffInDays(date1, date2) {
   // Convert both dates to milliseconds
+  console.log(date1);
   const date1MS = date1.getTime();
   const date2MS = date2.getTime();
 

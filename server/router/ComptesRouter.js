@@ -1,5 +1,5 @@
 const comptesRouter = require("express").Router()
-const {getAll,getOne,update,remove,create, getAllCompteByUser, getAllCompteByFiliale, getUsersById} = require("../controller/CompteController")
+const {getAll,getOne,update,remove,create, getAllCompteByUser, getAllCompteByFiliale, getUsersById, getComptesByUserAndFiliale} = require("../controller/CompteController")
 
 comptesRouter.get("/getAll",getAll)
 comptesRouter.post("/create",create)
@@ -9,6 +9,7 @@ comptesRouter.delete("/remove/:id",remove)
 comptesRouter.get("/getAllCompteByUser/:id",getAllCompteByUser) 
 comptesRouter.get("/getAllCompteByFiliale/:id",getAllCompteByFiliale) 
 comptesRouter.post("/getUsersById",getUsersById)
+comptesRouter.post("/getComptesByUserAndFiliale",getComptesByUserAndFiliale)
 
 
 

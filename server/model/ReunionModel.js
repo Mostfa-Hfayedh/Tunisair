@@ -6,11 +6,12 @@ module.exports = (connection,DataTypes)=>{
             type : DataTypes.ENUM ,
             values : ['AGO','AGE','CA']
         },
-        done : {
-            type : DataTypes.BOOLEAN ,
-            defaultValue : false
-        }
-        
+        etat : {
+            type : DataTypes.ENUM,
+            values : ['Prévue','En Cours','Annulé','Terminé'],
+            defaultValue : 'Prévue'
+        },
+        lieu : DataTypes.STRING
     })
     return Reunion;
 }

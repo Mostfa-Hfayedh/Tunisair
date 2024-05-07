@@ -39,7 +39,6 @@ function dateDiffInDays(date1, date2) {
 
   // Convert the difference to days
   const differenceDays = Math.ceil(differenceMS / (1000 * 60 * 60 * 24));
-  console.log(differenceDays);
   return differenceDays;
   }
   useEffect(()=>{
@@ -53,16 +52,17 @@ function dateDiffInDays(date1, date2) {
         <UpdateReunion  handleClose={handleCloseUpdate} open={openUpdate}  reload={reload} setReload={setReload} reunion={reunion} />
         <p>Date : {reunion.date.substring(0,10)}</p>
         <p>Type : {reunion.type} </p>
+        <p>Etat : {reunion.etat} </p>
         <DeleteReunion handleClose={handleCloseDelete} open={openDelete} reload={reload} setReload={setReload} reunion={reunion}/>
           {
-            dateDiffInDays(new Date(reunion.date),new Date(date)) >= 0 ? 
+            dateDiffInDays(new Date(reunion.date),new Date(date)) >= 0  && reunion.etat !== "Annulé" && reunion.etat !== "Terminé"? 
             <p className='visitButton' onClick={(e)=>{
               e.preventDefault();
               navigate(`/secretaireDash/reunionPlat`,{ state: { account: account , reunion : reunion} })
             }}>Visiter</p> : <></>
           }
         <div className='one-filiale-buttons'>
-            <FontAwesomeIcon icon={faTrash}  className='one-filiale-icons' onClick={handleOpenDelete} />
+            <FontAwesomeIcon icon={faTrash}  className='one-filiale-icons' onClick={handleOpenDelete}/>
             <FontAwesomeIcon icon={faEdit} className='one-filiale-icons' onClick={handleOpenUpdate}/>
         </div>
     </div>

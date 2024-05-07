@@ -2,10 +2,9 @@ const db = require('../database')
 module.exports = {
     getAll:async(req, res)=>{
         try {
-            const AllRefereniels = db.Refereniel.findAll({})
-            res.json(AllRefereniels)
-            
-            
+            const Refereniel = await db.Refereniel.findAll({})
+            console.log(Refereniel)
+            res.json(Refereniel)
         } catch (error) {
             console.log(error)
             
@@ -13,7 +12,7 @@ module.exports = {
     },
     getOne:async(req, res)=>{
         try {
-            const OneRefereniel = db.Refereniel.findOne({
+            const OneRefereniel = await db.Refereniel.findOne({
                 where:{
                     id:req.params.id
                 }

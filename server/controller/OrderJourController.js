@@ -2,7 +2,7 @@ const db = require('../database')
 module.exports = {
     getAll:async(req, res)=>{
         try {
-            const AllOrderJours = db.OrderJour.findAll({})
+            const AllOrderJours = await db.OrderJour.findAll({})
             res.json(AllOrderJours)
             
             

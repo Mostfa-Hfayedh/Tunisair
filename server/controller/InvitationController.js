@@ -85,5 +85,13 @@ module.exports = {
         } catch (error) {
             console.log(error);
         }
+    },
+    deleteByReunion : async (req,res) => {
+        try {
+            const invitation = await db.Invitation.destroy({where:{ReunionId:req.params.id}})
+            res.json(invitation)
+        } catch (error) {
+            console.log(error);
+        }
     }
 }

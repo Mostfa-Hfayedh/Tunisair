@@ -6,7 +6,6 @@ import Fade from "@mui/material/Fade";
 import Button from "@mui/material/Button";
 import axios from "axios";
 import { toast } from "react-toastify";
-import CryptoJS from 'crypto-js';
 import { useLocation } from "react-router-dom";
 
 

@@ -79,5 +79,15 @@ module.exports = {
         } catch (error) {
             console.log(error)
         }
+    },
+    getComptesByUserAndFiliale : async (req,res) => {
+        try {
+            const allComptes = await db.Comptes.findAll({
+                where : { UtilisateurId : req.body.user, FilialeId : req.body.filiale}
+            })
+            res.json(allComptes)
+        } catch (error) {
+            console.log(error)
+        }
     }
 }

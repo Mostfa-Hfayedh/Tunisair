@@ -2,7 +2,7 @@ const db = require('../database')
 module.exports = {
     getAll:async(req, res)=>{
         try {
-            const AllPvs = db.Pv.findAll({})
+            const AllPvs = await db.Pv.findAll({})
             res.json(AllPvs)
             
             
@@ -28,10 +28,7 @@ module.exports = {
     },
     create:async(req, res)=>{
         try {
-            const newPv = await db.Pv.create({
-                nom:req.body.nom,
-                description:req.body.description
-            })
+            const newPv = await db.Pv.create(req.body)
             res.json(newPv)
             
             

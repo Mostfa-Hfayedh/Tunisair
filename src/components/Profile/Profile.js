@@ -137,7 +137,7 @@ const Profile = () => {
         <div className="inputContainer">
           <p>CIN</p>
           <input type="text" value={cin} onChange={(e)=>setCin(e.target.value)}  />
-          <p> rak 8alet</p>
+         
         </div>
         <div className="inputContainer">
           <p>Email</p>

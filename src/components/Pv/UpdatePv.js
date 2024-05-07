@@ -24,9 +24,90 @@ const style = {
   p: 4,
 };
 
-const UpdatePv = () => {
+const UpdatePv = ({handleClose,open,reload,setReload,pv}) => {
+  const [selected,setSelected] = useState([])
+  const [content,setContent] = useState(pv.Description)
+
+  const notify = () => {
+		toast.success("Pv Modifié", {
+		  position: "top-center",
+		  autoClose: 3000,
+		  hideProgressBar: false,
+		  closeOnClick: true,
+		  pauseOnHover: false,
+		  draggable: true,
+		  progress: undefined,
+		  theme: "light",
+		});
+	  };
+
+  const handleUpdatePv = async () => {
+    try {
+      await axios.put(`http://localhost:3010/api/Pv/update/${pv.id}`,{
+        Description : content ,
+        ReunionId : selected.value
+      })
+      setReload(!reload)
+      notify()
+      handleClose()
+    } catch (error) {
+      console.log(error);
+    }
+  }
+
   return (
-    <div>UpdatePv</div>
+    <div>
+    <Modal
+      aria-labelledby="transition-modal-title"
+      aria-describedby="transition-modal-description"
+      open={open}
+      onClose={handleClose}
+      closeAfterTransition
+      slots={{ backdrop: Backdrop }}
+      slotProps={{
+        backdrop: {
+          timeout: 500,
+        },
+      }}
+    >
+      <Fade in={open}>
+        <Box sx={style}>
+          <div className="compte-form">
+                <div className="contentPv">
+              <p>Contenu :</p>
+              <textarea type="text" onChange={(e)=>setContent(e.target.value)} value={content}/>
+            </div>
+            <div className="custom-select">
+              <p>Reunion :</p>
+              <Select
+                closeMenuOnSelect={true}
+                components={animatedComponents}
+                styles={{ width: "100%" }}
+                onChange={(e)=>{
+                  setSelected(e)
+                }}
+                placeholder="Choisir utilisateur"
+              />
+            </div>
+          <div className="filialeButtons">
+              <Button
+                className="addButton"
+                onClick={(e) => {
+                  e.preventDefault();
+                  handleUpdatePv()
+                }}
+              >
+                Modifier
+              </Button>
+              <Button onClick={handleClose} className="addButton">
+                Annuler
+              </Button>
+            </div>
+          </div>
+        </Box>
+      </Fade>
+    </Modal>
+  </div>
   )
 }
 

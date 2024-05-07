@@ -2,7 +2,7 @@ const db = require('../database')
 module.exports = {
     getAll:async(req, res)=>{
         try {
-            const AllVote = db.Vote.findAll({})
+            const AllVote = await db.Vote.findAll({})
             res.json(AllVote)
             
             
@@ -13,7 +13,7 @@ module.exports = {
     },
     getOne:async(req, res)=>{
         try {
-            const OneVote = db.Vote.findOne({
+            const OneVote = await db.Vote.findOne({
                 where:{
                     id:req.params.id
                 }

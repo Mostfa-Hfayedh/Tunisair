@@ -36,7 +36,6 @@ const Document = ({reunion}) => {
             })
         }
     </div>
-    <ToastContainer />
 </div>
   )
 }

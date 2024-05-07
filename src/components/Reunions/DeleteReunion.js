@@ -4,7 +4,7 @@ import Box from "@mui/material/Box";
 import Modal from "@mui/material/Modal";
 import Fade from "@mui/material/Fade";
 import Button from "@mui/material/Button";
-import {toast } from "react-toastify";
+import { toast } from "react-toastify";
 import axios from "axios";
 
 const style = {
@@ -19,10 +19,7 @@ const style = {
   p: 4,
 };
 
-
-const DeleteReunion = ({reload,setReload,handleClose,open,reunion}) => {
-
-
+const DeleteReunion = ({ reload, setReload, handleClose, open, reunion }) => {
   const notifyError = () => {
     toast.error("Confirmer vos cordonnées", {
       position: "top-center",
@@ -52,13 +49,13 @@ const DeleteReunion = ({reload,setReload,handleClose,open,reunion}) => {
     try {
       const token = localStorage.getItem("token");
       if (token) {
-            await axios.delete(
-                `http://localhost:3010/api/reunion/remove/${reunion.id}`
-              );
-              notify();
-              handleClose();
-              setReload(!reload)
-
+        await axios.delete(`http://localhost:3010/api/invitation/deleteByReunion/${reunion.id}`);
+        await axios.delete(
+          `http://localhost:3010/api/reunion/remove/${reunion.id}`
+        );
+        notify();
+        handleClose();
+        setReload(!reload);
       }
     } catch (error) {
       console.log(error);
@@ -66,43 +63,46 @@ const DeleteReunion = ({reload,setReload,handleClose,open,reunion}) => {
     }
   };
 
-
   return (
     <div>
-    <Modal
-      aria-labelledby="transition-modal-title"
-      aria-describedby="transition-modal-description"
-      open={open}
-      onClose={handleClose}
-      closeAfterTransition
-      slots={{ backdrop: Backdrop }}
-      slotProps={{
-        backdrop: {
-          timeout: 500,
-        },
-      }}
-    >
-      <Fade in={open}>
-        <Box sx={style}>
-          <div className="filiale-form-delete">
-
-            <p className="delete">Vous êtes sure vous voulez supprimer ce reunion ?</p>
-            <div className="filialeButtons">
-              <Button  className="addButton" onClick={(e)=>{
-                handleDelete()
-              }}>
-                Supprimer
-              </Button>
-              <Button onClick={handleClose} className="addButton">
-                Annuler
-              </Button>
+      <Modal
+        aria-labelledby="transition-modal-title"
+        aria-describedby="transition-modal-description"
+        open={open}
+        onClose={handleClose}
+        closeAfterTransition
+        slots={{ backdrop: Backdrop }}
+        slotProps={{
+          backdrop: {
+            timeout: 500,
+          },
+        }}
+      >
+        <Fade in={open}>
+          <Box sx={style}>
+            <div className="filiale-form-delete">
+              <p className="delete">
+                Vous êtes sure vous voulez supprimer ce reunion ?
+              </p>
+              <div className="filialeButtons">
+                <Button
+                  className="addButton"
+                  onClick={(e) => {
+                    handleDelete();
+                  }}
+                >
+                  Supprimer
+                </Button>
+                <Button onClick={handleClose} className="addButton">
+                  Annuler
+                </Button>
+              </div>
             </div>
-            </div>
-        </Box>
-      </Fade>
-    </Modal>
-  </div>
-  )
-}
+          </Box>
+        </Fade>
+      </Modal>
+    </div>
+  );
+};
 
-export default DeleteReunion
+export default DeleteReunion;

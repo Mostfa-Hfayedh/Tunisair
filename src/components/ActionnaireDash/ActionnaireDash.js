@@ -31,7 +31,6 @@ const ActionnaireDash = () => {
   
     useEffect(()=>{
       getUser()
-      console.log(account);
     },[])
 
     return (

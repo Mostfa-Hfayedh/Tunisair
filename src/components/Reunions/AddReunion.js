@@ -6,10 +6,10 @@ import Fade from "@mui/material/Fade";
 import Button from "@mui/material/Button";
 import axios from "axios";
 import { toast } from "react-toastify";
-import Select from "react-select";
-import makeAnimated from "react-select/animated";
 import { useLocation } from "react-router-dom";
 import "./reunion.css"
+import Select from "react-select";
+import makeAnimated from "react-select/animated";
 const animatedComponents = makeAnimated();
 
 
@@ -34,6 +34,7 @@ const AddReunion = ({reload,setReload}) => {
   const [name, setName] = useState('')
   const [date, setDate] = useState('')
   const [comptes , setComptes] = useState([]);
+  const [lieu,setLieu] = useState('');
   const location = useLocation()
   const account = location.state.account
 
@@ -86,7 +87,7 @@ const AddReunion = ({reload,setReload}) => {
     const prepBody = (arr)=>{
       let body = {}
       arr.forEach((compte)=>{
-          body[compte.UtilisateurId] = compte.UtilisateurId 
+          body[compte.id] = compte.UtilisateurId 
       }) 
       return body
   }
@@ -116,7 +117,6 @@ const AddReunion = ({reload,setReload}) => {
               handleSelectedOptions(users.data)
             }
           }
-
         }
       } catch (error) {
           console.log(error);
@@ -133,14 +133,20 @@ const AddReunion = ({reload,setReload}) => {
               "http://localhost:3010/api/reunion/create",
               body
             );
-            for (let compte of comptes){
-              if(compte.role !== "Sécrétaire"  && compte.role !== "Gestionnaire"){
-                await axios.post('http://localhost:3010/api/invitation/create',{
-                  ReunionId : res.data.id ,
-                  CompteId : compte.id
-                })
-              }
+            let accountsToInvite = []
+            for (let user of selectedUsers){
+              const accounts = await axios.post('http://localhost:3010/api/comptes/getComptesByUserAndFiliale',{
+                user : user.value ,
+                filiale : account.FilialeId
+              })
+              accountsToInvite.push(...accounts.data);
             }
+            accountsToInvite.forEach(async (account) => {
+              axios.post('http://localhost:3010/api/invitation/create',{
+                ReunionId : res.data.id,
+                CompteId : account.id
+              })
+            })
             notify();
             handleClose();
             setReload(!reload)
@@ -232,6 +238,10 @@ const AddReunion = ({reload,setReload}) => {
                 <p>Nom :</p>
                 <input type="text" onChange={(e)=>setName(e.target.value)}/>
               </div>
+                  <div className="longInput">
+                <p>Lieu :</p>
+                <input type="text" onChange={(e)=>setLieu(e.target.value)}/>
+              </div>
               <div className="custom-select">
                 <p>Utilisateur :</p>
                 <Select
@@ -263,7 +273,8 @@ const AddReunion = ({reload,setReload}) => {
                       date,
                       type,
                       name,
-                      FilialeId:account.FilialeId
+                      FilialeId:account.FilialeId,
+                      lieu
                     })
                   }}
                 >

@@ -51,9 +51,7 @@ const DeletePv = ({reload,setReload,handleClose,open,pv}) => {
         try {
           const token = localStorage.getItem("token");
           if (token) {
-                await axios.delete(
-                    ``
-                  );
+                await axios.delete(`http://localhost:3010/api/Pv/remove/${pv.id}`);
                   notify();
                   handleClose();
                   setReload(!reload)

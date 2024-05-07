@@ -12,8 +12,8 @@ import {
 } from "@fortawesome/free-solid-svg-icons";
 import { useNavigate } from "react-router-dom";
 
-const SideNav = ({ account , user}) => {
-  const navigate = useNavigate();   
+const SideNav = ({ account, user }) => {
+  const navigate = useNavigate();
 
   return (
     <div className="sidenav">
@@ -67,6 +67,16 @@ const SideNav = ({ account , user}) => {
             >
               <FontAwesomeIcon className="icons" icon={faAddressBook} />
               <p>Comptes</p>
+            </div>
+            <div
+              className="sidenav-option"
+              onClick={(e) => {
+                e.preventDefault();
+                navigate("Refereniel", { state: { account: account } });
+              }}
+            >
+              <FontAwesomeIcon className="icons" icon={faFile} />
+              <p>Refereniel</p>
             </div>{" "}
           </>
         ) : (
@@ -84,38 +94,51 @@ const SideNav = ({ account , user}) => {
               <FontAwesomeIcon className="icons" icon={faUsers} />
               <p>Réunions</p>
             </div>
-            <div className="sidenav-option" 
-            onClick={(e) => {
-              e.preventDefault();
-              navigate("Pv", { state: { account: account } });
-            }}
+            <div
+              className="sidenav-option"
+              onClick={(e) => {
+                e.preventDefault();
+                navigate("Pv", { state: { account: account } });
+              }}
             >
               <FontAwesomeIcon className="icons" icon={faFile} />
               <p>PV</p>
             </div>
-            <div className="sidenav-option" 
-            onClick={(e) => {
-              e.preventDefault();
-              navigate("Refereniel", { state: { account: account } });
-            }}
+            <div
+              className="sidenav-option"
+              onClick={(e) => {
+                e.preventDefault();
+                navigate("Refereniel", { state: { account: account } });
+              }}
             >
               <FontAwesomeIcon className="icons" icon={faFile} />
               <p>Refereniel</p>
             </div>
           </>
-          
         ) : (
           <></>
         )}
         {account.role === "Actionnaire" ? (
           <>
-            <div className="sidenav-option"
+            <div
+              className="sidenav-option"
               onClick={(e) => {
                 e.preventDefault();
                 navigate("invitation", { state: { account: account } });
-              }}>
+              }}
+            >
               <FontAwesomeIcon className="icons" icon={faMessage} />
               <p>Invitaions</p>
+            </div>
+            <div
+              className="sidenav-option"
+              onClick={(e) => {
+                e.preventDefault();
+                navigate("Refereniel", { state: { account: account } });
+              }}
+            >
+              <FontAwesomeIcon className="icons" icon={faFile} />
+              <p>Refereniel</p>
             </div>
           </>
         ) : (
@@ -123,22 +146,35 @@ const SideNav = ({ account , user}) => {
         )}
         {account.role === "Décideur" ? (
           <>
-            <div className="sidenav-option">
+            <div
+              className="sidenav-option"
+              onClick={(e) => {
+                e.preventDefault();
+                navigate("filiales", { state: { account: account } });
+              }}
+            >
               <FontAwesomeIcon className="icons" icon={faBuilding} />
               <p>Filiale</p>
             </div>
-            <div className="sidenav-option"
-            onClick={(e) => {
-              e.preventDefault();
-              navigate("Pv", { state: { account: account } });
-            }}
+            <div
+              className="sidenav-option"
+              onClick={(e) => {
+                e.preventDefault();
+                navigate("invitation", { state: { account: account } });
+              }}
+            >
+              <FontAwesomeIcon className="icons" icon={faMessage} />
+              <p>Invitation</p>
+            </div>
+            <div
+              className="sidenav-option"
+              onClick={(e) => {
+                e.preventDefault();
+                navigate("Refereniel", { state: { account: account } });
+              }}
             >
               <FontAwesomeIcon className="icons" icon={faFile} />
-              <p>PV</p>
-            </div>
-            <div className="sidenav-option">
-              <FontAwesomeIcon className="icons" icon={faUsers} />
-              <p>Réunions</p>
+              <p>Refereniel</p>
             </div>
           </>
         ) : (
@@ -146,18 +182,35 @@ const SideNav = ({ account , user}) => {
         )}
         {account.role === "Administrateur" ? (
           <>
-            <div className="sidenav-option"
-            onClick={(e) => {
-              e.preventDefault();
-              navigate("invitation", { state: { account: account } });
-            }}
+            <div
+              className="sidenav-option"
+              onClick={(e) => {
+                e.preventDefault();
+                navigate("invitation", { state: { account: account } });
+              }}
             >
               <FontAwesomeIcon className="icons" icon={faMessage} />
               <p>Invitations</p>
             </div>
-            <div className="sidenav-option">
+            <div
+              className="sidenav-option"
+              onClick={(e) => {
+                e.preventDefault();
+                navigate("Pv", { state: { account: account } });
+              }}
+            >
               <FontAwesomeIcon className="icons" icon={faFile} />
               <p>PV</p>
+            </div>
+            <div
+              className="sidenav-option"
+              onClick={(e) => {
+                e.preventDefault();
+                navigate("Refereniel", { state: { account: account } });
+              }}
+            >
+              <FontAwesomeIcon className="icons" icon={faFile} />
+              <p>Refereniel</p>
             </div>
           </>
         ) : (
@@ -168,8 +221,7 @@ const SideNav = ({ account , user}) => {
         className="sidenav-option"
         onClick={(e) => {
           e.preventDefault();
-          
-          navigate("/comptes" ,  {state : {userId : user.id}});
+          navigate("/comptes", { state: { userId: user.id } });
         }}
       >
         <FontAwesomeIcon className="icons" icon={faRightFromBracket} />

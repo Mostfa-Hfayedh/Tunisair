@@ -1,7 +1,10 @@
 module.exports = (connection,DataTypes)=>{
     const Pv = connection.define('Pv',{
-        Name:DataTypes.STRING,
         Description:DataTypes.STRING,
+        valid : {
+            type : DataTypes.BOOLEAN,
+            defaultValue : false,
+        }
     })
     return Pv;
 }

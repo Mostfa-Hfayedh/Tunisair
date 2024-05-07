@@ -2,7 +2,7 @@ const db = require('../database')
 module.exports = {
     getAll:async(req, res)=>{
         try {
-            const AllFonctions = db.Fonction.findAll({})
+            const AllFonctions = await db.Fonction.findAll({})
             res.json(AllFonctions)
             
             
@@ -13,7 +13,7 @@ module.exports = {
     },
     getOne:async(req, res)=>{
         try {
-            const OneFonction = db.Fonction.findOne({
+            const OneFonction = await db.Fonction.findOne({
                 where:{
                     id:req.params.id
                 }

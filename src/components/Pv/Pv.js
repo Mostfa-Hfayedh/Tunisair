@@ -7,20 +7,21 @@ import AddPv from './AddPv'
 const Pv = () => {
 
     const [reload ,setReload] = useState(false)
-	const [pv,setInvitations] = useState([])
+	const [pv,setPv] = useState([])
+    
 
-	const fetchReunions = async () => {
-		try {
-			const response = await axios.get('')
-            setInvitations(response.data)
-		} catch (error) {
-			console.log(error);
-		}
-	}
+    const fetchPv = async () => {
+        try {
+            const pv = await axios.get('http://localhost:3010/api/Pv/getAll')
+            setPv(pv.data)
+        } catch (error) {
+            console.log(error);
+        }
+    }
 
 	
 	useEffect(()=>{
-		fetchReunions()
+        fetchPv()
 	},[reload])
   return (
     <div className='filiales'>
@@ -29,12 +30,9 @@ const Pv = () => {
     <AddPv reload={reload} setReload={setReload} />
     </div>
     <div className='filiales-container'>
-        <OnePv/>
         {
             pv?.map((pv,index)=>{
-                if(!pv.done){
-                    return <OnePv key={index} pv={pv} reload={reload} setReload={setReload} />
-                }
+                return <OnePv key={index} pv={pv} reload={reload} setReload={setReload} />
             })
         }
     </div> 
