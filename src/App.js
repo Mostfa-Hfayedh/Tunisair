@@ -16,6 +16,8 @@ import Pv from './components/Pv/Pv';
 import Refereniel from './components/Refereniel/Refereniel';
 import AdminDash from './components/AdminDash/AdminDash';
 import DecideurDash from './components/DecideurDash/DecideurDash';
+import Analyses from './components/SecretaryDash/Analyses';
+import Imprimer from './components/Imprimer/Imprimer';
 
 function App() {
   return (
@@ -42,6 +44,7 @@ function App() {
             <Route path='reunionPlat' Component={ReunionPlat}/>
             <Route path='Pv' Component={Pv}/>
             <Route path='refereniel' Component={Refereniel}/>
+            <Route path='analyses' Component={Analyses}/>
         </Route>
         <Route path='/adminDash' Component={AdminDash}>
           <Route path='profile' Component={Profile}/>
@@ -49,6 +52,7 @@ function App() {
           <Route path='reunionPlat' Component={ReunionPlat}/>
           <Route path='refereniel' Component={Refereniel}/>
           <Route path='Pv' Component={Pv}/>
+          <Route path='analyses' Component={Analyses}/>
         </Route>
         <Route path='/decideurDash' Component={DecideurDash}>
           <Route path='profile' Component={Profile}/>
@@ -57,6 +61,7 @@ function App() {
           <Route path='refereniel' Component={Refereniel}/>
           <Route path='filiales' Component={Filiales}/>
         </Route>
+        <Route path='imprimer' Component={Imprimer}/>
 
       </Routes>
     </div>

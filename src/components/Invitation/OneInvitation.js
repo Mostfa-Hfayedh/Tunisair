@@ -11,6 +11,11 @@ const OneInvitation = ({invitation}) => {
   const navigate = useNavigate()
   const account = location.state.account
 
+
+  const navigation = () => {
+    return account.role === "Gestionnaire" ? "gestionnaireDash/reunionPlat" : account.role === "Actionnaire" ? "actionnaireDash/reunionPlat" : account.role === "Décideur" ? "decideurDash/reunionPlat" : account.role === "Administrateur" ? "adminDash/reunionPlat" : account.role === "Sécrétaire" ? "secretaireDash/reunionPlat" : ""
+  }
+
   const getReunion = async () => {
     try {
       const response = await axios.get(`http://localhost:3010/api/reunion/getOne/${invitation.ReunionId}`)
@@ -70,10 +75,10 @@ function dateDiffInDays(date1, date2) {
         <p>Nom : {reunion?.name}</p>
         <p>Date : {reunion?.date?.substring(0,10)}</p>
         {
-            dateDiffInDays(new Date(reunion?.date),new Date()) >= 0 ? 
+            dateDiffInDays(new Date(reunion?.date),new Date()) >= 0 && reunion.etat !== "Terminé" && reunion.etat !== "Annulé" ? 
             <p className='visitButton' onClick={(e)=>{
               e.preventDefault();
-              navigate(`/actionnaireDash/reunionPlat`,{ state: { account: account , reunion : reunion} })
+              navigate(`/`+navigation(),{ state: { account: account , reunion : reunion} })
               handleAddPresence()
             }}>Visiter</p> : <></>
           }

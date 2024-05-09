@@ -29,7 +29,7 @@ const style = {
 const AddPv = ({reload,setReload}) => {
   const [open, setOpen] = useState(false);
   const [options,setOptions] = useState([])
-  const [selected,setSelected] = useState([])
+  const [selected,setSelected] = useState({})
   const [content,setContent] = useState('')
 
   const location = useLocation()
@@ -61,7 +61,7 @@ const AddPv = ({reload,setReload}) => {
 
   const handleAddPv = async () => {
     try {
-      await axios.post('http://localhost:3010/api/Pv/update/${userId}',{
+      await axios.post('http://localhost:3010/api/Pv/create',{
         Description : content ,
         ReunionId : selected.value
       })

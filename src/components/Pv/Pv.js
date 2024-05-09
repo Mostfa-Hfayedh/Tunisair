@@ -3,11 +3,14 @@ import axios from 'axios'
 import { ToastContainer, toast } from 'react-toastify'
 import OnePv from './OnePv'
 import AddPv from './AddPv'
+import { useLocation } from 'react-router-dom'
 
 const Pv = () => {
 
     const [reload ,setReload] = useState(false)
 	const [pv,setPv] = useState([])
+    const location = useLocation()
+    const account = location.state.account
     
 
     const fetchPv = async () => {
@@ -27,7 +30,12 @@ const Pv = () => {
     <div className='filiales'>
     <div className='filiales-header'>
     <p className='filiales-titre'>Pvs</p>
-    <AddPv reload={reload} setReload={setReload} />
+        {
+            account.role === "Sécrétaire" ?
+            <AddPv reload={reload} setReload={setReload} />
+            :
+            <></>
+        }
     </div>
     <div className='filiales-container'>
         {

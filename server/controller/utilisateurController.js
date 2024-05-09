@@ -160,5 +160,56 @@ module.exports = {
             console.log(error)
         }
     },
+
+    getAnalyses : async (req,res) => {
+        try {
+            let stat = []
+            const comptes = await db.Comptes.findAll({where : { FilialeId : req.body.filiale}})
+            for (let compte of comptes) {
+                let presence = 0
+                let absence = 0
+                const user = await db.Utilisateur.findByPk(compte.UtilisateurId)
+                if(compte.role !== "Sécrétaire"){
+                    const invitations = await  db.Invitation.findAll({where : { CompteId : compte.id}})
+                    for (let invitation of invitations){
+                        const reunion = await db.Reunion.findByPk(invitation.ReunionId)
+                        if(reunion.etat !== "Annulé"){
+                            if(req.body.month){
+                                if(String(reunion.date).split(" ")[1] === req.body.month){
+                                    if(invitation.presence){
+                                        presence++
+                                    }
+                                    else{
+                                        if(String(reunion.date) < String(new Date())){
+                                            absence++
+                                        }
+                                    }
+                                }
+                            }
+                            else{
+                                if(invitation.presence){
+                                    presence++
+                                }
+                                else{
+                                    
+                                    if(String(reunion.date) < String(new Date())){
+                                        absence++
+                                    }
+                                }
+                            }
+                        }
+                    }
+                    stat.push({
+                        name : user.name,
+                        presence : presence,
+                        absence : absence
+                    })
+                }
+            }
+            res.json(stat)
+        } catch (error) {
+            console.log(error);
+        }
+    }
     
 }

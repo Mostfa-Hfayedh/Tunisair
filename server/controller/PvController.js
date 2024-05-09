@@ -39,10 +39,7 @@ module.exports = {
     },
     update:async(req, res)=>{
         try {
-            const updatedPv = await db.Pv.update({
-                nom:req.body.nom,
-                description:req.body.description
-            },{
+            const updatedPv = await db.Pv.update(req.body,{
                 where:{
                     id:req.params.id
                 }

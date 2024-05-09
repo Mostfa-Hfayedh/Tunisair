@@ -3,6 +3,7 @@ import "./SideNav.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faAddressBook,
+  faBarChart,
   faBuilding,
   faCircleUser,
   faFile,
@@ -68,16 +69,6 @@ const SideNav = ({ account, user }) => {
               <FontAwesomeIcon className="icons" icon={faAddressBook} />
               <p>Comptes</p>
             </div>
-            <div
-              className="sidenav-option"
-              onClick={(e) => {
-                e.preventDefault();
-                navigate("Refereniel", { state: { account: account } });
-              }}
-            >
-              <FontAwesomeIcon className="icons" icon={faFile} />
-              <p>Refereniel</p>
-            </div>{" "}
           </>
         ) : (
           <></>
@@ -113,6 +104,16 @@ const SideNav = ({ account, user }) => {
             >
               <FontAwesomeIcon className="icons" icon={faFile} />
               <p>Refereniel</p>
+            </div>
+            <div
+              className="sidenav-option"
+              onClick={(e) => {
+                e.preventDefault();
+                navigate("analyses", { state: { account: account } });
+              }}
+            >
+              <FontAwesomeIcon className="icons" icon={faBarChart} />
+              <p>Analyses</p>
             </div>
           </>
         ) : (
@@ -211,6 +212,16 @@ const SideNav = ({ account, user }) => {
             >
               <FontAwesomeIcon className="icons" icon={faFile} />
               <p>Refereniel</p>
+            </div>
+            <div
+              className="sidenav-option"
+              onClick={(e) => {
+                e.preventDefault();
+                navigate("analyses", { state: { account: account } });
+              }}
+            >
+              <FontAwesomeIcon className="icons" icon={faBarChart} />
+              <p>Analyses</p>
             </div>
           </>
         ) : (

@@ -25,8 +25,42 @@ const style = {
 };
 
 const UpdatePv = ({handleClose,open,reload,setReload,pv}) => {
-  const [selected,setSelected] = useState([])
+  const [selected,setSelected] = useState({})
   const [content,setContent] = useState(pv.Description)
+  const location = useLocation()
+  const account = location.state.account
+  const [options,setOptions] = useState([])
+  const [reunion,setReunion] = useState({})
+
+
+  const handleOptions = (reunions) => {
+
+    const options = reunions.map((reunion) => {
+      return {
+        value: reunion.id,
+        label: reunion.name,
+      };
+    });
+    setOptions(options);
+  }
+  const getReunion = async () => {
+    try {
+      const reunion = await axios.get(`http://localhost:3010/api/reunion/getOne/${pv.ReunionId}`)
+      setReunion(reunion.data)
+      setSelected({label : reunion.data.name , value : reunion.data.id})
+    } catch (error) {
+      console.log(error);
+    }
+  }
+
+  const fetchReunions = async () => {
+    try {
+      const reunions = await axios.get(`http://localhost:3010/api/reunion/getReunionByFiliale/${account.FilialeId}`)
+      handleOptions(reunions.data)
+    } catch (error) {
+      console.log(error);
+    }
+  }
 
   const notify = () => {
 		toast.success("Pv Modifié", {
@@ -55,6 +89,11 @@ const UpdatePv = ({handleClose,open,reload,setReload,pv}) => {
     }
   }
 
+  useEffect(()=>{
+    fetchReunions()
+    getReunion()
+  },[])
+
   return (
     <div>
     <Modal
@@ -82,11 +121,14 @@ const UpdatePv = ({handleClose,open,reload,setReload,pv}) => {
               <Select
                 closeMenuOnSelect={true}
                 components={animatedComponents}
+                options={options}
                 styles={{ width: "100%" }}
                 onChange={(e)=>{
                   setSelected(e)
                 }}
-                placeholder="Choisir utilisateur"
+                value={selected}
+                placeholder="Choisir reunion"
+                isDisabled
               />
             </div>
           <div className="filialeButtons">

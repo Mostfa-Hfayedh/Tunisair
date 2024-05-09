@@ -1,13 +1,24 @@
 module.exports = (connection,DataTypes)=>{
     const Utilisateur = connection.define('Utilisateur',{
         name:DataTypes.STRING,
-        matricule:DataTypes.STRING,
+        matricule:{
+            type : DataTypes.STRING,
+            unique : true,
+            allowNull : false,
+        },
         sexe:{
             type : DataTypes.ENUM ,
             values : ['homme' ,'femme']
         },
         phone:DataTypes.STRING,
-        email:DataTypes.STRING,
+        email:{
+            type : DataTypes.STRING,
+            unique : true,
+            allowNull : false,
+            validate : {
+                isEmail : true,
+            }
+        },
         password:DataTypes.STRING,
         personnelTunisair:DataTypes.BOOLEAN,
         representantLegal:DataTypes.BOOLEAN,

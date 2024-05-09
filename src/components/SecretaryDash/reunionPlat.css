@@ -164,3 +164,91 @@
     border-radius: 8px;
     cursor: pointer;
   }
+
+  .analyses{
+    width: 80%;
+    background-color: white;
+    padding: 1rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap: 2rem;
+  }
+
+  .analyses-reunion {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    align-items: center;
+  }
+ .progress{
+  width: 600px;
+ }
+ .progress-section{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+ }
+ .progress-section p {
+  font-size: 26px;
+  font-weight: 500;
+  color: #D40000;
+ }
+
+ .analyses-presences-upper {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+ }
+
+ .mois {
+  font-size: 19px;
+  font-weight: 500;
+  color: #D40000;
+ }
+
+ .presence-key span{
+    background-color: #D40000;
+    color: transparent;
+    
+ }
+
+ .absence-key span{
+    background-color: #e25252;
+    color: transparent;
+ }
+
+ .presence-key {
+  display: flex;
+  gap: 1rem;
+  justify-content: space-between;
+  align-items: center;
+  width: 25%;
+ }
+ .absence-key{
+  display: flex;
+  gap: 1rem;
+  justify-content: space-between;
+  align-items: center;
+  width: 25%;
+ }
+
+ .map-key{
+  display: flex;
+  gap: 0.5rem;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+ }
+
+ .analyses-presences{
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  justify-content: center;
+  align-items: center;
+ }

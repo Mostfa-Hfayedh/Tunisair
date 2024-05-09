@@ -57,27 +57,30 @@ const ReunionPlat = () => {
       </div>
       <div className="reunion-header">
         <p>Lieu de Reunion : {reunion?.lieu}</p>
-        <div className="custom-select-reunion">
-          <p>Etat :</p>
-          <Select
-            closeMenuOnSelect={true}
-            components={animatedComponents}
-            styles={{ width: "100%" }}
-            options={options}
-            value={selected}
-            onChange={(e) => {
-              setSelected(e)
-            }}
-            onBlur={()=>{
-              console.log(reunion.etat);
-            }}
-            placeholder="Choisir Etat"
-          />
-          <p id="etatButton" onClick={(e)=>{
-            e.preventDefault();
-            handleUpdateReunion();
-          }}>Enregistrer</p>
-        </div>
+          {
+            account.role === "Sécrétaire" ? 
+            <div className="custom-select-reunion">
+            <p>Etat :</p>
+            <Select
+              closeMenuOnSelect={true}
+              components={animatedComponents}
+              styles={{ width: "100%" }}
+              options={options}
+              value={selected}
+              onChange={(e) => {
+                setSelected(e)
+              }}
+              onBlur={()=>{
+                console.log(reunion.etat);
+              }}
+              placeholder="Choisir Etat"
+            />
+            <p id="etatButton" onClick={(e)=>{
+              e.preventDefault();
+              handleUpdateReunion();
+            }}>Enregistrer</p>
+          </div>: <></>
+          }
       </div>
       <OrdreDuJour reunion={reunion} />
       <Document reunion={reunion} />
