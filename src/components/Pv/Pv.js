@@ -15,7 +15,7 @@ const Pv = () => {
 
     const fetchPv = async () => {
         try {
-            const pv = await axios.get('http://localhost:3010/api/Pv/getAll')
+            const pv = await axios.get(`http://localhost:3010/api/Pv/getByFiliale/${account.FilialeId}`)
             setPv(pv.data)
         } catch (error) {
             console.log(error);

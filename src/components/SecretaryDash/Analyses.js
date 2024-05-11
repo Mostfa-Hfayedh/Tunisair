@@ -36,7 +36,7 @@ const Analyses = () => {
   const fetchReunions = async () => {
     try {
       const response = await axios.get(
-        "http://localhost:3010/api/reunion/getAll"
+        `http://localhost:3010/api/reunion/getReunionByFiliale/${account.FilialeId}`
       );
       setReunions(response.data);
     } catch (error) {

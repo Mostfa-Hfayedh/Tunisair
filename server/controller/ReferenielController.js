@@ -65,5 +65,13 @@ module.exports = {
             console.log(error)
             
         }
+    },
+    getByFiliale : async (req,res) => {
+        try {
+            const refereniel = await db.Refereniel.findAll({where: {FilialeId:req.params.id}})
+            res.json(refereniel)
+        } catch (error) {
+            console.log(error);
+        }
     }
 }

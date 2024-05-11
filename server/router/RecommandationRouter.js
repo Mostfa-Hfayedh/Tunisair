@@ -1,5 +1,5 @@
 const RecommandationRoute = require("express").Router()
-const{getAll,getOne,remove,update,create} = require("../controller/RecommandationController")
+const{getAll,getOne,remove,update,create, getByReunion} = require("../controller/RecommandationController")
 
 
 RecommandationRoute.get("/getAll",getAll)
@@ -11,6 +11,8 @@ RecommandationRoute.delete("/remove/:id",remove)
 RecommandationRoute.put("/update/:id",update)
 
 RecommandationRoute.post("/create",create)
+
+RecommandationRoute.get("/getByReunion/:id",getByReunion)
 
 
 

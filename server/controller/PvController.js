@@ -66,5 +66,22 @@ module.exports = {
             console.log(error)
             
         }
+    },
+    getByFiliale : async (req, res)=>{
+        try {
+            let pv = []
+            const reunions = await db.Reunion.findAll({where : {FilialeId:req.params.id}})
+            for ( let reunion of reunions) {
+                const Allpv = await db.Pv.findAll({
+                    where:{
+                        ReunionId:reunion.id
+                    }
+                })
+                pv.push(...Allpv)
+            }
+            res.json(pv)
+        } catch (error) {
+            console.log(error);
+        }
     }
 }

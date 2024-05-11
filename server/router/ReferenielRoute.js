@@ -1,5 +1,5 @@
 const ReferenielRouter = require("express").Router()
-const {getAll,getOne,remove,update,create} = require("../controller/ReferenielController")
+const {getAll,getOne,remove,update,create, getByFiliale} = require("../controller/ReferenielController")
 
 ReferenielRouter.get("/getAll",getAll)
 
@@ -10,6 +10,8 @@ ReferenielRouter.delete("/remove/:id",remove)
 ReferenielRouter.put("/update/:id",update)
 
 ReferenielRouter.post("/create",create)
+
+ReferenielRouter.get("/getByFiliale/:id",getByFiliale)
 
 
 

@@ -3,14 +3,17 @@ import axios from 'axios'
 import { ToastContainer, toast } from 'react-toastify'
 import AddReunion from './AddReunion'
 import OneReunion from './OneReunion'
+import { useLocation } from 'react-router-dom'
 
 const Reunions = () => {
 	const [reload ,setReload] = useState(false)
 	const [reunions,setReunions] = useState([])
+	const location = useLocation()
+	const account = location.state.account
 
 	const fetchReunions = async () => {
 		try {
-			const response = await axios.get('http://localhost:3010/api/reunion/getAll')
+			const response = await axios.get(`http://localhost:3010/api/reunion/getReunionByFiliale/${account.FilialeId}`)
             setReunions(response.data)
 		} catch (error) {
 			console.log(error);

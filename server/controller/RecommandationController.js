@@ -65,5 +65,17 @@ module.exports = {
             console.log(error)
             
         }
+    } ,
+    getByReunion : async (req,res) => {
+        try {
+            const recommandation = await db.Recommandation.findAll({
+                where:{
+                    ReunionId:req.params.id
+                }
+            })
+            res.json(recommandation)
+        } catch (error) {
+            console.log(error)
+        }
     }
 }

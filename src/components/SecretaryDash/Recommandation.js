@@ -10,7 +10,7 @@ const Recommandation = ({reunion}) => {
   
   const fetchRcm = async () => {
     try {
-      const response = await axios.get(`http://localhost:3010/api/recommandation/getAll`)
+      const response = await axios.get(`http://localhost:3010/api/recommandation/getByReunion/${reunion.id}`)
             setRecommandation(response.data)
     } catch (error) {
       console.log(error);
