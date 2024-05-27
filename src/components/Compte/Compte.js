@@ -58,7 +58,7 @@ function Compte() {
         }}
       >
         <FontAwesomeIcon className="icons" icon={faRightFromBracket} />
-        <p>Log Out</p>
+        <p>deconnecter</p>
       </div>
     </div>
   );

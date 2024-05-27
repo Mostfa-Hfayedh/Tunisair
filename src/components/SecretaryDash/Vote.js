@@ -6,6 +6,7 @@ import Fade from "@mui/material/Fade";
 import Button from "@mui/material/Button";
 import {toast } from "react-toastify";
 import axios from "axios";
+import { useLocation } from "react-router-dom";
 
 const style = {
   position: "absolute",
@@ -19,8 +20,10 @@ const style = {
   p: 4,
 };
 
-const Vote = ({handleClose,ordre,open}) => {
+const Vote = ({handleClose,ordre,open,reload,setReload}) => {
     const [vote,setVote] = useState(false)
+    const location = useLocation()
+    const account = location.state.account
 
     const notifyError = () => {
         toast.error("Confirmer vos cordonnées", {
@@ -56,7 +59,8 @@ const Vote = ({handleClose,ordre,open}) => {
                     body
                   );
                   notify();
-                  handleClose();    
+                  handleClose();  
+                  setReload(!reload);  
           }
         } catch (error) {
           console.log(error);
@@ -124,7 +128,8 @@ const Vote = ({handleClose,ordre,open}) => {
               <Button  className="addButton" onClick={(e)=>{
                 handleAdd({
                   vote,
-                  OrderJourId : ordre.id
+                  OrderJourId : ordre.id,
+                  CompteId : account.id
                 })
               }}>
                 Vote

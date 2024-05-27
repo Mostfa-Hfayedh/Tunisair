@@ -67,7 +67,7 @@ const Login = () => {
             });
           }}
         >
-          Login
+           se connecter
         </button>
       </div>
     </div>

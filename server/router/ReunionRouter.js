@@ -1,5 +1,5 @@
 const ReunionRoute = require("express").Router()
-const{getAll,getOne,remove,update,create, getReunionByFiliale} = require("../controller/ReunionController")
+const{getAll,getOne,remove,update,create, getReunionByFiliale, deleteReunionByFiliale} = require("../controller/ReunionController")
 
 
 ReunionRoute.get("/getAll",getAll)
@@ -13,5 +13,7 @@ ReunionRoute.put("/update/:id",update)
 ReunionRoute.post("/create",create)
 
 ReunionRoute.get("/getReunionByFiliale/:id",getReunionByFiliale)
+
+ReunionRoute.delete("/deleteReunionByFiliale/:id",deleteReunionByFiliale)
 
 module.exports = ReunionRoute

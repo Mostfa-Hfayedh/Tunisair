@@ -30,6 +30,8 @@ const AddUser = ({ reload, setReload }) => {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [passwordError, setPasswordError] = useState(false)
+  const [emailError, setEmailError] = useState(false)
 
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
@@ -46,7 +48,24 @@ const AddUser = ({ reload, setReload }) => {
       theme: "light",
     });
   };
-
+  const validateString = (str) => {
+    const regex = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])[a-zA-Z\d]{8,}$/;
+    setPasswordError(!regex.test(str))
+  }
+  const validateEmail = (str) => {
+    const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+.[a-zA-Z]{2,}$/;
+    setEmailError(!emailRegex.test(str))
+  } 
+  const formatInputMobile = (inputId) => {
+    const input = document.getElementById(inputId);
+    input.value = input.value.replace(/\D/g, '');
+    setMobile(input.value)
+}
+  const formatInputCin = (inputId) => {
+    const input = document.getElementById(inputId);
+    input.value = input.value.replace(/\D/g, '');
+    setCin(input.value)
+}
   const notify = () => {
     toast.success("Utilisateur Crée", {
       position: "top-center",
@@ -133,16 +152,22 @@ const AddUser = ({ reload, setReload }) => {
                   </div>
                   <div className="longInput">
                     <p>Mobile :</p>
-                    <input type="text" onChange={(e)=>setMobile(e.target.value)}/>
+                    <input type="text" id="mobile" onChange={(e)=>formatInputMobile("mobile")}/>
                   </div>
                   <div className="longInput">
                     <p>Email :</p>
-                    <input type="text" onChange={(e)=>setEmail(e.target.value)}/>
+                    <input type="text" onChange={(e)=>setEmail(e.target.value)} onBlur={()=>(validateEmail(email))}/>
                   </div>
+                  {
+                    emailError? <p className="error">Veuillez entrer une adresse e-mail valide.</p> : <></>
+                  }
                   <div className="longInput">
                     <p>Mot de passe :</p>
-                    <input type="text" onChange={(e)=>setPassword(e.target.value)}/>
+                    <input type="text" onChange={(e)=>setPassword(e.target.value)} onBlur={()=>(validateString(password))}/>
                   </div>
+                    {
+                      passwordError ? <p className="error">Le mot de passe doit contenir au moins 1 caractère majuscule, 1 caractère minuscule, 1 chiffre et une longueur minimale de 8 caractères</p> : <></>
+                    }
                 </div>
                 <div className="user-form-right">
                 <div className="longInput">
@@ -151,7 +176,7 @@ const AddUser = ({ reload, setReload }) => {
                   </div>
                   <div className="longInput">
                     <p>CIN :</p>
-                    <input type="text" onChange={(e)=>setCin(e.target.value)}/>
+                    <input type="text"  id="cin" onChange={(e)=>formatInputCin("cin")}/>
                   </div>
                   <div className="toggle-section">
                     <p>Personnel Tunisair :</p>

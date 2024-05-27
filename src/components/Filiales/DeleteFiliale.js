@@ -40,7 +40,7 @@ const DeleteFiliale = ({handleClose , open , filiale , reload , setReload}) => {
           position: "top-center",
           autoClose: 3000,
           hideProgressBar: false,
-          closeOnClick: true,
+          closeOnClick: true, 
           pauseOnHover: false,
           draggable: true,
           progress: undefined,
@@ -52,6 +52,9 @@ const DeleteFiliale = ({handleClose , open , filiale , reload , setReload}) => {
         try {
           const token = localStorage.getItem("token");
           if (token) {
+            
+            await axios.delete(`http://localhost:3010/api/reunion/deleteReunionByFiliale/${filiale.id}`)
+            await axios.delete(`http://localhost:3010/api/comptes/deleteCompteByFiliale/${filiale.id}`)
                 await axios.delete(
                     `http://localhost:3010/api/filiale/remove/${filiale.id}`
                   );

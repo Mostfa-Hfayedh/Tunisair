@@ -77,5 +77,13 @@ module.exports = {
             console.log(error)
             
         }
+    },
+    deleteReunionByFiliale : async (req, res) => {
+        try {
+            const reunions = await db.Reunion.destroy({where:{FilialeId:req.params.id}})
+            res.json(reunions)
+        } catch (error) {
+            console.log(error);
+        }
     }
 }

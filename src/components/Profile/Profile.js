@@ -33,7 +33,7 @@ const Profile = () => {
       };
 
     const notify = () => {
-        toast.success("Profile Updated", {
+        toast.success("Profil mis à jour", {
           position: "top-center",
           autoClose: 3000,
           hideProgressBar: false,

@@ -91,7 +91,7 @@ const Recommandation = ({reunion}) => {
         </div>  : <></>
         }
     </div>
-    <ToastContainer />
+  
 </div>
   )
 }

@@ -35,7 +35,37 @@ const AddFiliale = ({ reload, setReload }) => {
   const account = location.state.account;
   const [open, setOpen] = useState(false);
   const handleOpen = () => setOpen(true);
-  const handleClose = () => setOpen(false);
+  const handleClose = () => {
+    setOpen(false)
+    setDenomination("")
+    setType("")
+    setAbreviation("")
+    setAdresse("")
+    setDirecteurGeneral("")
+    setValeurNominale("")
+    setNombredeSiege("")
+    setIdentifiantUnique("")
+    setActivitePrincipale("")
+    setActiviteAnnexe("")
+  };
+  const formatInputValuerNominale = (inputId) => {
+    const input = document.getElementById(inputId);
+    input.value = input.value.replace(/\D/g, '');
+    setValeurNominale(input.value)
+}
+
+const formatInputIdentifiantUnique = (inputId) => {
+  const input = document.getElementById(inputId);
+  input.value = input.value.replace(/\D/g, '');
+  setIdentifiantUnique(input.value)
+}
+
+const formatInputNombredesieges = (inputId) => {
+  const input = document.getElementById(inputId);
+  input.value = input.value.replace(/\D/g, '');
+  setNombredeSiege(input.value)
+}
+
 
   const notifyError = () => {
     toast.error("Confirmer vos cordonnées", {
@@ -67,27 +97,50 @@ const AddFiliale = ({ reload, setReload }) => {
     try {
       const token = localStorage.getItem("token");
       if (token) {
-        if (
-          denomination &&
-          type &&
-          abreviation &&
-          adresse &&
-          directeurGeneral &&
-          valeurNominale &&
-          nombredeSiege &&
-          identifiantUnique &&
-          activitePrincipale &&
-          activiteAnnexe
-        ) {
-          const res = await axios.post(
-            "http://localhost:3010/api/filiale/create",
-            body
-          );
-          notify();
-          handleClose();
-          setReload(!reload);
-        } else {
-          notifyError();
+        if(type !== "Autre"){
+          if (
+            denomination &&
+            type &&
+            abreviation &&
+            adresse &&
+            directeurGeneral &&
+            valeurNominale &&
+            nombredeSiege &&
+            identifiantUnique &&
+            activitePrincipale &&
+            activiteAnnexe
+          ) {
+            const res = await axios.post(
+              "http://localhost:3010/api/filiale/create",
+              body
+            );
+            notify();
+            handleClose();
+            setReload(!reload);
+          } else {
+            notifyError();
+          }
+        }
+        else {
+          if (
+            denomination &&
+            type &&
+            abreviation
+          ) {
+            const res = await axios.post(
+              "http://localhost:3010/api/filiale/create",
+              {
+                denomination : body.denomination,
+                type : body.type,
+                abreviation : body.abreviation,
+              }
+            );
+            notify();
+            handleClose();
+            setReload(!reload);
+          } else {
+            notifyError();
+          }
         }
       }
     } catch (error) {
@@ -98,11 +151,13 @@ const AddFiliale = ({ reload, setReload }) => {
 
   return (
     <div>
-      {account.role === "Gestionnaire" ?
+      {account.role === "Gestionnaire" ? (
         <Button onClick={handleOpen} className="addButton">
           + Ajouter
-        </Button>:<></>
-      }
+        </Button>
+      ) : (
+        <></>
+      )}
 
       <Modal
         aria-labelledby="transition-modal-title"
@@ -206,15 +261,15 @@ const AddFiliale = ({ reload, setReload }) => {
                       <div className="shortInput">
                         <p>Valuer Nominale :</p>
                         <input
-                          type="text"
-                          onChange={(e) => setValeurNominale(e.target.value)}
+                          type="text" id="nominale"
+                          onChange={(e) => formatInputValuerNominale("nominale")}
                         />
                       </div>
                       <div className="shortInput">
                         <p>Identifiant Unique :</p>
                         <input
-                          type="text"
-                          onChange={(e) => setIdentifiantUnique(e.target.value)}
+                          type="text" id="unique"
+                          onChange={(e) => formatInputIdentifiantUnique("unique")}
                         />
                       </div>
                     </div>
@@ -222,8 +277,8 @@ const AddFiliale = ({ reload, setReload }) => {
                       <div className="shortInput">
                         <p>Nombre de siéges :</p>
                         <input
-                          type="text"
-                          onChange={(e) => setNombredeSiege(e.target.value)}
+                          type="text" id="sieges"
+                          onChange={(e) => formatInputNombredesieges("sieges")}
                         />
                       </div>
                     </div>

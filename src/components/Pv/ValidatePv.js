@@ -38,7 +38,7 @@ const ValidatePv = ({reload,setReload,handleClose,open,pv}) => {
       };
     
       const notify = () => {
-        toast.success("Pv Supprimé", {
+        toast.success("Pv validé", {
           position: "top-center",
           autoClose: 3000,
           hideProgressBar: false,

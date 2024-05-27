@@ -1,5 +1,5 @@
 const voteRoute = require("express").Router()
-const {getAll,getOne,remove,update,create} = require("../controller/VoteController")
+const {getAll,getOne,remove,update,create, getVoteByOrdre} = require("../controller/VoteController")
 
 voteRoute.get("/getAll",getAll)
 
@@ -10,6 +10,8 @@ voteRoute.delete("/remove/:id",remove)
 voteRoute.put("/update/:id",update)
 
 voteRoute.post("/create",create)
+
+voteRoute.get("/getVoteByOrdre/:id", getVoteByOrdre)
 
 
 

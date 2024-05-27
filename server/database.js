@@ -97,6 +97,9 @@ Presence.belongsTo(Utilisateur)
 Filiale.hasMany(Refereniel)
 Refereniel.belongsTo(Filiale)
 
+Comptes.hasMany(Vote)
+Vote.belongsTo(Comptes)
+
 
 
 

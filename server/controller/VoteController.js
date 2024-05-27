@@ -66,5 +66,13 @@ module.exports = {
             console.log(error)
             
         }
+    },
+    getVoteByOrdre : async (req, res)=>{
+        try {
+            const votes = await db.Vote.findAll({where : {OrderJourId : req.params.id}})
+            res.json(votes)
+        } catch (error) {
+            console.log(error);
+        }
     }
 }

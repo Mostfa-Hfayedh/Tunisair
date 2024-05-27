@@ -89,5 +89,21 @@ module.exports = {
         } catch (error) {
             console.log(error)
         }
-    }
+    },
+    deleteCompteByUser : async (req,res) => { 
+        try {
+            const comptes = await db.Comptes.destroy({where : { UtilisateurId : req.params.id}}) 
+            res.json(comptes)
+        } catch (error) {
+            console.log(error);
+        }
+    },
+    deleteCompteByFiliale : async (req,res) => { 
+        try {
+            const comptes = await db.Comptes.destroy({where : { FilialeId : req.params.id}}) 
+            res.json(comptes)
+        } catch (error) {
+            console.log(error);
+        }
+    },
 }

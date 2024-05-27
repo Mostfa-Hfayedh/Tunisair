@@ -45,7 +45,7 @@ const OneCompte = ({account}) => {
       <a href="" className="button" onClick={()=>{
         navigate("/"+navigation() , {state :{ account : account}})
       }}>
-        Login 
+        se connecter 
       </a>  
     </div>
   );

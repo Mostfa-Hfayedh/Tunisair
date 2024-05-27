@@ -4,9 +4,13 @@ import React, { useEffect, useState } from 'react'
 import { useLocation, useNavigate } from 'react-router-dom'
 import DeleteOrdre from './DeleteOrdre'
 import Vote from './Vote'
+import axios from 'axios'
 const OneOrdre = ({reload,setReload,ordre,reunion}) => {
   const [openDelete,setOpenDelete] = useState(false)
   const [openVote,setOpenVote] = useState(false)
+  const [pour,setPour] = useState([])
+  const [contre,setContre] = useState([])
+  const [permission,setPermission] = useState(true)
   const navigate = useNavigate()
   const location = useLocation()
   const account = location.state.account
@@ -31,14 +35,36 @@ const OneOrdre = ({reload,setReload,ordre,reunion}) => {
     return differenceDays;
     }
 
+    const fetchVote = async () => {
+      try {
+        const votes = await axios.get(`http://localhost:3010/api/vote/getVoteByOrdre/${ordre.id}`)
+        setPour(votes.data.filter((vote)=> vote.vote === true))
+        setContre(votes.data.filter((vote)=> vote.vote === false))
+        for( let vote of votes.data) {
+          if(vote.CompteId === account.id){   
+            setPermission(false)
+            setReload(!reload)
+          }
+        }
+      } catch (error) {
+        console.log(error);
+      }
+    }
+    
+    useEffect(()=>{
+      fetchVote()
+    },[reload])
+
 
   return (
     <div className='one-filiale'>
         <p>Name : {ordre.Num}</p>
         <p>Nature : {ordre.Nature}</p>
         <p>Type d'action : {ordre.TypeDaction}</p>
+        <p>Pour : {pour?.length}</p>
+        <p>Contre : {contre?.length}</p>
         <DeleteOrdre handleClose={handleCloseDelete} open={openDelete} reload={reload} setReload={setReload} ordre={ordre}/>
-        <Vote handleClose={handleCloseVote} open={openVote} ordre={ordre}  />
+        <Vote handleClose={handleCloseVote} open={openVote} ordre={ordre} reload={reload} setReload={setReload} />
         <div className='one-filiale-buttons'>
             {
               account.role === 'Sécrétaire' ?
@@ -46,7 +72,7 @@ const OneOrdre = ({reload,setReload,ordre,reunion}) => {
               : null
             }
             {
-            account.role !== 'Sécrétaire' && dateDiffInDays(new Date(reunion?.date),new Date()) === 0?
+            account.role !== 'Sécrétaire' && dateDiffInDays(new Date(reunion?.date),new Date()) === 0 && permission === true ?
               <FontAwesomeIcon icon={faGavel} className='one-filiale-icons' onClick={handleOpenVote} />
               : null
             }

@@ -20,10 +20,10 @@ const SideNav = ({ account, user }) => {
     <div className="sidenav">
       <div className="sidenav-header">
         <img
-          src="https://upload.wikimedia.org/wikipedia/fr/6/60/Tunis_Air_Club.png"
+          src="https://www.destinationtunisie.info/wp-content/uploads/2018/12/tunisair_infos.jpg"
           alt=""
         />
-        <p>Tunisair</p>
+       
       </div>
       <div className="sidenav-options">
         <div
@@ -34,7 +34,7 @@ const SideNav = ({ account, user }) => {
           }}
         >
           <FontAwesomeIcon className="icons" icon={faCircleUser} />
-          <p>Profile</p>
+          <p>Profil</p>
         </div>
         {account.role === "Gestionnaire" ? (
           <>
@@ -93,7 +93,7 @@ const SideNav = ({ account, user }) => {
               }}
             >
               <FontAwesomeIcon className="icons" icon={faFile} />
-              <p>PV</p>
+              <p>PVS</p>
             </div>
             <div
               className="sidenav-option"
@@ -103,7 +103,7 @@ const SideNav = ({ account, user }) => {
               }}
             >
               <FontAwesomeIcon className="icons" icon={faFile} />
-              <p>Refereniel</p>
+              <p>Referentiel</p>
             </div>
             <div
               className="sidenav-option"
@@ -113,7 +113,7 @@ const SideNav = ({ account, user }) => {
               }}
             >
               <FontAwesomeIcon className="icons" icon={faBarChart} />
-              <p>Analyses</p>
+              <p>Statistiques</p>
             </div>
           </>
         ) : (
@@ -129,7 +129,7 @@ const SideNav = ({ account, user }) => {
               }}
             >
               <FontAwesomeIcon className="icons" icon={faMessage} />
-              <p>Invitaions</p>
+              <p>Invitations</p>
             </div>
             <div
               className="sidenav-option"
@@ -139,7 +139,7 @@ const SideNav = ({ account, user }) => {
               }}
             >
               <FontAwesomeIcon className="icons" icon={faFile} />
-              <p>Refereniel</p>
+              <p>Referentiel</p>
             </div>
           </>
         ) : (
@@ -175,7 +175,7 @@ const SideNav = ({ account, user }) => {
               }}
             >
               <FontAwesomeIcon className="icons" icon={faFile} />
-              <p>Refereniel</p>
+              <p>Referentiel</p>
             </div>
           </>
         ) : (
@@ -201,7 +201,7 @@ const SideNav = ({ account, user }) => {
               }}
             >
               <FontAwesomeIcon className="icons" icon={faFile} />
-              <p>PV</p>
+              <p>PVS</p>
             </div>
             <div
               className="sidenav-option"
@@ -211,7 +211,7 @@ const SideNav = ({ account, user }) => {
               }}
             >
               <FontAwesomeIcon className="icons" icon={faFile} />
-              <p>Refereniel</p>
+              <p>Referentiel</p>
             </div>
             <div
               className="sidenav-option"
@@ -221,7 +221,7 @@ const SideNav = ({ account, user }) => {
               }}
             >
               <FontAwesomeIcon className="icons" icon={faBarChart} />
-              <p>Analyses</p>
+              <p>Statistiques</p>
             </div>
           </>
         ) : (
@@ -236,7 +236,7 @@ const SideNav = ({ account, user }) => {
         }}
       >
         <FontAwesomeIcon className="icons" icon={faRightFromBracket} />
-        <p>Log Out</p>
+        <p> déconnecter</p>
       </div>
     </div>
   );

@@ -29,7 +29,7 @@ const Invitation = () => {
   return (
     <div className='filiales'>
 		<div className='filiales-header'>
-		<p className='filiales-titre'>Invitation</p>
+		<p className='filiales-titre'>Invitations</p>
 		</div>
 		<div className='filiales-container'>
 			{

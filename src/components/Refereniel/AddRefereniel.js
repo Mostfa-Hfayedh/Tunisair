@@ -49,7 +49,7 @@ const AddRefereniel = ({ reload, setReload , account }) => {
   };
 
   const notify = () => {
-    toast.success("Filiale Crée", {
+    toast.success("Referentiel Crée", {
       position: "top-center",
       autoClose: 3000,
       hideProgressBar: false,

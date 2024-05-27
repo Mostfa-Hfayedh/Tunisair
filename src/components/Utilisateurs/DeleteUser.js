@@ -49,6 +49,7 @@ const DeleteUser = ({handleClose,open,reload,setReload,user}) => {
         try {
           const token = localStorage.getItem("token");
           if (token) {
+            await axios.delete(`http://localhost:3010/api/comptes/deleteCompteByUser/${user.id}`)
                 await axios.delete(
                     `http://localhost:3010/api/utilisateur/delete/${user.id}`
                   );
