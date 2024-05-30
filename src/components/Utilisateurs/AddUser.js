@@ -163,7 +163,7 @@ const AddUser = ({ reload, setReload }) => {
                   }
                   <div className="longInput">
                     <p>Mot de passe :</p>
-                    <input type="text" onChange={(e)=>setPassword(e.target.value)} onBlur={()=>(validateString(password))}/>
+                    <input type="text" required onChange={(e)=>setPassword(e.target.value)} onBlur={()=>(validateString(password))}/>
                   </div>
                     {
                       passwordError ? <p className="error">Le mot de passe doit contenir au moins 1 caractère majuscule, 1 caractère minuscule, 1 chiffre et une longueur minimale de 8 caractères</p> : <></>

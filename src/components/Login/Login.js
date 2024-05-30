@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import "./login.css";
 import axios from "axios";
+import { ToastContainer, toast } from "react-toastify";
 import {  useNavigate } from "react-router-dom";
 
 const Login = () => {
@@ -8,7 +9,18 @@ const Login = () => {
   const [email, setEmail] = useState("");
   const navigate = useNavigate();
 
-
+  const notifyError = () => {
+    toast.error("mot de passe ou mail incorrect", {
+      position: "top-center",
+      autoClose: 3000,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: false,
+      draggable: true,
+      progress: undefined,
+      theme: "light",
+    });
+  };
 
   const handleLogin = async (body) => {
     try {
@@ -20,6 +32,7 @@ const Login = () => {
       navigate("/comptes" , {state : {userId : data.data.UtilisateurId}});
     } catch (error) {
       console.log(error);
+      notifyError();
     }
   };
 
@@ -70,6 +83,7 @@ const Login = () => {
            se connecter
         </button>
       </div>
+      <ToastContainer />
     </div>
   );
 };
