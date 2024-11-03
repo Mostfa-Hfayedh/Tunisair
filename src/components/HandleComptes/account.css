@@ -5,7 +5,7 @@
 .custom-select p {
     font-size: 18px;
     font-weight: 500;
-    color: #D40000;
+    color: #3D90E3;
     margin-bottom: 1rem;
 }
 
@@ -55,7 +55,7 @@
   }
   
   .radio-input label:has(input:checked) ~ .selection {
-    background-color: #D40000;
+    background-color: #3D90E3;
     display: inline-block;
   }
   

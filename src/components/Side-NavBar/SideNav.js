@@ -11,6 +11,7 @@ import {
   faRightFromBracket,
   faUsers,
 } from "@fortawesome/free-solid-svg-icons";
+import logo from "../../assets/BeeCoders.png"
 import { useNavigate } from "react-router-dom";
 
 const SideNav = ({ account, user }) => {
@@ -20,7 +21,7 @@ const SideNav = ({ account, user }) => {
     <div className="sidenav">
       <div className="sidenav-header">
         <img
-          src="https://www.destinationtunisie.info/wp-content/uploads/2018/12/tunisair_infos.jpg"
+          src={logo}
           alt=""
         />
        

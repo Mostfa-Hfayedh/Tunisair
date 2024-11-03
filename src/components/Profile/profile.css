@@ -60,7 +60,7 @@
 .inputContainer p {
     font-size: 16px;
     font-weight: 500;
-    color: #D40000;
+    color: #3D90E3;
 }
 .longInputContainer {
     width: 50%;
@@ -83,7 +83,7 @@
 .longInputContainer p {
     font-size: 16px;
     font-weight: 500;
-    color: #D40000;
+    color: #3D90E3;
 }
 
 .profileSubmit{
@@ -92,7 +92,7 @@
     justify-content: center;
     align-items: center;
     height: 3rem;
-    background-color: #D40000;
+    background-color: #3D90E3;
     border-radius: 8px;
     color: white;
     cursor: pointer;

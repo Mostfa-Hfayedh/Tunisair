@@ -95,19 +95,19 @@ const Analyses = () => {
                   id: 0,
                   value: reunionPrévue?.length,
                   label: "Prévue",
-                  color: "#e25252",
+                  color: "lightblue",
                 },
                 {
                   id: 1,
                   value: reunionEnCours?.length,
                   label: "En Cours",
-                  color: "rgba(252, 192, 192, 0.933)",
+                  color: "#6f92b4",
                 },
                 {
                   id: 2,
                   value: reunionAnnulé?.length,
                   label: "Annulé",
-                  color: "#D40000",
+                  color: "#3D90E3",
                 },
                 {
                   id: 3,
@@ -129,13 +129,13 @@ const Analyses = () => {
                 ? 0
                 : (reunionTerminé.length / reunions?.length).toFixed(2) * 100
             }
-            bgColor="#D40000"
+            bgColor="#3D90E3"
             className="progress"
           />
         </div>
       </div>
       <div className="analyses-presences">
-          <p style={{color : "#D40000" , fontSize : "30px" , fontWeight : "500"}}>Statistiques de présences</p>
+          <p style={{color : "#3D90E3" , fontSize : "30px" , fontWeight : "500"}}>Statistiques de présences</p>
         <div className="analyses-presences-upper">
               <p className="mois">Mois :</p>
           <div>
@@ -160,7 +160,7 @@ const Analyses = () => {
           xAxis={[
             { scaleType: "band", data: users },
           ]}
-          series={[{ data: absences , color : "#e25252" }, { data: presences , color : "#D40000" }]}
+          series={[{ data: absences , color : "#6f92b4" }, { data: presences , color : "#3D90E3" }]}
           width={500}
           height={300}
         />

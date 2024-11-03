@@ -24,8 +24,6 @@ const AddUser = ({ reload, setReload }) => {
   const [matricule, setMatricule] = useState("");
   const [sexe, setSexe] = useState("");
   const [mobile, setMobile] = useState("");
-  const [tunis, setTunis] = useState(false);
-  const [legal, setLegal] = useState(false);
   const [cin, setCin] = useState("");
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
@@ -178,26 +176,6 @@ const AddUser = ({ reload, setReload }) => {
                     <p>CIN :</p>
                     <input type="text"  id="cin" onChange={(e)=>formatInputCin("cin")}/>
                   </div>
-                  <div className="toggle-section">
-                    <p>Personnel Tunisair :</p>
-                    <label className="switch">
-                      <input type="checkbox" checked={tunis}onChange={(e)=>{
-                        setTunis(true)
-                        setLegal(false)
-                      }} />
-                      <span className="slider"></span>
-                    </label>
-                  </div>
-                  <div className="toggle-section">
-                    <p>Représentant Legal :</p>
-                    <label className="switch">
-                      <input type="checkbox" checked={legal} onChange={(e)=>{
-                        setTunis(false)
-                        setLegal(true)
-                      }} />
-                      <span className="slider"></span>
-                    </label>
-                  </div>
                 </div>
               </div>
 
@@ -212,8 +190,6 @@ const AddUser = ({ reload, setReload }) => {
                       sexe,
                       phone: mobile,
                       cin,
-                      personnelTunisair: tunis,
-                      representantLegal: legal,
                       email,
                       password,
                     });

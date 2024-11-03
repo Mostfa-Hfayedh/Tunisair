@@ -21,7 +21,7 @@
 .reunion-header p {
     font-size: 1.5rem;
     font-weight: 600;
-    color: #D40000;
+    color: #3D90E3;
 }
 
 .input-D {
@@ -52,7 +52,7 @@
     padding-top:20px ;
     font-size: 20px;
     font-weight: 500;
-    color: #D40000;
+    color: #3D90E3;
   }
 
   .inputSection{
@@ -89,7 +89,7 @@
     width: 20%;
     font-size: 18px;
     font-weight: 500;
-    color: #D40000;
+    color: #3D90E3;
 }
  
 .document-form{
@@ -133,7 +133,7 @@
     font-size: 18px;
     font-weight: 500;
     color: white;
-    background-color: #D40000;
+    background-color: #3D90E3;
     padding: 0.3rem;
     border-radius: 8px;
     cursor: pointer;
@@ -156,7 +156,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: #D40000;
+    background-color: #3D90E3;
     color: white;
     width : 30%;
     font-size: 18px;
@@ -195,7 +195,7 @@
  .progress-section p {
   font-size: 26px;
   font-weight: 500;
-  color: #D40000;
+  color: #3D90E3;
  }
 
  .analyses-presences-upper {
@@ -208,17 +208,17 @@
  .mois {
   font-size: 19px;
   font-weight: 500;
-  color: #D40000;
+  color: #3D90E3;
  }
 
  .presence-key span{
-    background-color: #D40000;
+    background-color: #3D90E3;
     color: transparent;
     
  }
 
  .absence-key span{
-    background-color: #e25252;
+    background-color: #6f92b4;
     color: transparent;
  }
 

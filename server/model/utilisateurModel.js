@@ -20,8 +20,6 @@ module.exports = (connection,DataTypes)=>{
             }
         },
         password:DataTypes.STRING,
-        personnelTunisair:DataTypes.BOOLEAN,
-        representantLegal:DataTypes.BOOLEAN,
         photo:{
             type : DataTypes.STRING,
             defaultValue : 'https://imebehavioralhealth.com/wp-content/uploads/2021/10/user-icon-placeholder-1.png'

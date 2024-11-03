@@ -82,7 +82,7 @@
 
   
   .iLabel {
-    color: #dc2f55;
+    color: #3D90E3;
     font-family: sans-serif;
     left: 20px;
     line-height: 14px;
@@ -109,11 +109,11 @@
 
   
   .input  .iLabel {
-    color: #dc2f55;
+    color: #3D90E3;
   }
   
   .submit {
-    background-color: #dc2f55;
+    background-color: #3D90E3;
     border-radius: 12px;
     border: 0;
     box-sizing: border-box;

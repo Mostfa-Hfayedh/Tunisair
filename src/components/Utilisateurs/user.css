@@ -19,12 +19,12 @@
 .titre p {
     font-size: 18px;
     font-weight: 500;
-    color: #D40000;
+    color: #3D90E3;
 }
 .toggle-section p {
     font-size: 18px;
     font-weight: 500;
-    color: #D40000;
+    color: #3D90E3;
 }
 .toggle-section{
     display: flex;
@@ -83,12 +83,12 @@
   }
   
   input:checked + .slider {
-    background-color: #D40000;
-    border: 1px solid #D40000;
+    background-color: #3D90E3;
+    border: 1px solid #3D90E3;
   }
   
   input:focus + .slider {
-    box-shadow: 0 0 1px #D40000;
+    box-shadow: 0 0 1px #3D90E3;
   }
   
   input:checked + .slider:before {
@@ -110,5 +110,5 @@
   }
 
   .error{
-    color: #D40000;
+    color: #3D90E3;
   }

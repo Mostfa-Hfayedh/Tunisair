@@ -11,7 +11,7 @@
 .filiales-titre{
   font-size: 36px;
   font-weight: 500;
-  color: #D40000;
+  color: #3D90E3;
 }
 .filiales-container{
   display: flex;
@@ -60,13 +60,13 @@
 .one-filiale-icons{
   width: 1.5rem;
   height: 1.5rem;
-  color: #D40000;
+  color: #3D90E3;
   cursor: pointer;
 }
 .addButton{
   width: 8rem !important;
   height: 3rem !important;
-  background-color: #D40000 !important;
+  background-color: #3D90E3 !important;
   color: white !important;
   border-radius: 8px !important;
   font-size: 15px !important;
@@ -118,20 +118,20 @@
 }
 
 .radio-button__input:checked + .radio-button__label .radio-button__custom {
-  background-color: #D40000;
+  background-color: #3D90E3;
   border-color: transparent;
   transform: scale(0.8);
   box-shadow: 0 0 20px #4c8bf580;
 }
 
 .radio-button__input:checked + .radio-button__label {
-  color: #D40000;
+  color: #3D90E3;
 }
 
 .radio-button__label:hover .radio-button__custom {
   transform: scale(1.2);
-  border-color: #D40000;
-  box-shadow: 0 0 20px #D40000;
+  border-color: #3D90E3;
+  box-shadow: 0 0 20px #3D90E3;
 }
 
 
@@ -162,7 +162,7 @@
 .longInput p {
   font-size: 18px;
   font-weight: 500;
-  color: #D40000;
+  color: #3D90E3;
 }
 
 .type-abrev{
@@ -190,7 +190,7 @@
 .abreviation p{
   font-size: 18px;
   font-weight: 500;
-  color: #D40000;
+  color: #3D90E3;
 }
 .type{
   width: 55%;
@@ -201,7 +201,7 @@
 .type p {
   font-size: 18px;
   font-weight: 500;
-  color: #D40000;
+  color: #3D90E3;
 }
 
 .midFilialeSection{
@@ -239,7 +239,7 @@
 .shortInput p {
   font-size: 18px;
   font-weight: 500;
-  color: #D40000;
+  color: #3D90E3;
 }
 
 .filialeButtons{
@@ -250,7 +250,7 @@
 }
 .filialeButtons p {
   width: 15%;
-  background-color: #D40000;
+  background-color: #3D90E3;
   height: 2.5rem;
   border-radius: 10px;
   display: flex;
